@@ -13,7 +13,7 @@ class Players extends Component {
         return (
             <header>
                 {players.map((player, key) => (
-                    <div key={key}>{player}</div>
+                    <div key={key}>Player {key + 1}: {player}</div>
                 ))}
             </header>
         );
