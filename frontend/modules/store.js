@@ -9,6 +9,12 @@ import devtools from 'unistore/devtools';
 const createStore = () => {
     const initialState = {
         players: [],
+        game: {
+            started: false,
+            finished: false,
+            points: {},
+            turn: ""
+        },
         route: "intro"
     };
 
