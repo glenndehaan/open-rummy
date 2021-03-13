@@ -1,3 +1,18 @@
+// Default CSS Variables
 :root {
   --players: 8;
+
+  @include lightMode;
+}
+
+// CSS Variables based on the color scheme
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include darkMode;
+  }
+}
+
+// CSS Variables based on the dark class on the body tag
+body.dark {
+  @include darkMode;
 }

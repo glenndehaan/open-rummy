@@ -1,0 +1,19 @@
+// Light mode color scheme
+@mixin lightMode() {
+  --color-link: #2563EB;
+  --color-text: #0F172A;
+  --color-background: #FFFFFF;
+
+  --color-soft-background: #F8FAFC;
+  --color-soft-border: #E2E8F0;
+}
+
+// Dark mode color scheme
+@mixin darkMode() {
+  --color-link: #58a6ff;
+  --color-text: #F8FAFC;
+  --color-background: #06090f;
+
+  --color-soft-background: #0d1117;
+  --color-soft-border: #30363d;
+}

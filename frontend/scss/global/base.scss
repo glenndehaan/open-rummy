@@ -1,4 +1,4 @@
-// base styling
+// Base styling
 *,
 *:before,
 *:after {
@@ -8,4 +8,12 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   font-family: Verdana, serif;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
