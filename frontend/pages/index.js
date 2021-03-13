@@ -16,13 +16,6 @@ const pages = {
 
 class Pages extends Component {
     /**
-     * Runs then component mounts
-     */
-    componentDidMount() {
-        document.title = 'Home | Open Rummy';
-    }
-
-    /**
      * Preact render function
      *
      * @returns {*}
