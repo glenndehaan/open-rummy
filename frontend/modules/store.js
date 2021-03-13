@@ -8,6 +8,7 @@ import devtools from 'unistore/devtools';
  */
 const createStore = () => {
     const initialState = {
+        players: [],
         route: "intro"
     };
 
@@ -24,6 +25,11 @@ const actions = () => {
         updateRouter(state, payload) {
             return {
                 route: payload
+            };
+        },
+        setPlayers(state, payload) {
+            return {
+                players: payload
             };
         }
     };

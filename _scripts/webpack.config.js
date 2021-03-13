@@ -52,7 +52,7 @@ module.exports = {
                             require.resolve('@babel/preset-react')
                         ],
                         plugins: [
-                            [require.resolve('@babel/plugin-transform-react-jsx'), {pragma: 'h'}]
+                            [require.resolve('@babel/plugin-transform-react-jsx'), {pragma: 'h', pragmaFrag: 'Fragment'}]
                         ]
                     }
                 }

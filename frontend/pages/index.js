@@ -1,5 +1,7 @@
-import {h, Component} from 'preact';
+import {h, Component, Fragment} from 'preact';
 import {connect} from 'unistore/preact';
+
+import Players from '../components/Players';
 
 import Intro from './Intro';
 
@@ -29,9 +31,12 @@ class Pages extends Component {
 
         if(IconComp) {
             return (
-                <main>
-                    <IconComp/>
-                </main>
+                <>
+                    <Players/>
+                    <main>
+                        <IconComp/>
+                    </main>
+                </>
             );
         } else {
             console.error(`Missing page for route: ${route}`);
