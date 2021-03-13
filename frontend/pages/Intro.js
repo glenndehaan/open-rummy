@@ -2,6 +2,8 @@ import {h, Component} from 'preact';
 import {connect} from 'unistore/preact';
 import {actions} from '../modules/store';
 
+import ButtonBar from '../components/ButtonBar';
+
 class Intro extends Component {
     /**
      * Runs then component mounts
@@ -26,7 +28,7 @@ class Intro extends Component {
         return (
             <main>
                 Intro<br/>
-                <button onClick={() => this.nextStep()}>Let&apos;s start!</button>
+                <ButtonBar buttons={[{text: "Let's start!", color: 'success', click: () => this.nextStep()}]}/>
             </main>
         );
     }

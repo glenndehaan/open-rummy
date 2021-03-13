@@ -2,6 +2,8 @@ import {h, Component, createRef} from 'preact';
 import {connect} from 'unistore/preact';
 import {actions} from '../modules/store';
 
+import ButtonBar from '../components/ButtonBar';
+
 class Players extends Component {
     /**
      * Constructor
@@ -56,7 +58,7 @@ class Players extends Component {
                 <input type="text" placeholder="Player 6 Name" ref={this.elements.player6}/><br/>
                 <input type="text" placeholder="Player 7 Name" ref={this.elements.player7}/><br/>
                 <input type="text" placeholder="Player 8 Name" ref={this.elements.player8}/><br/>
-                <button onClick={() => this.nextStep()}>Save players</button>
+                <ButtonBar buttons={[{text: "Save players", color: "success", click: () => this.nextStep()}]}/>
             </main>
         );
     }
