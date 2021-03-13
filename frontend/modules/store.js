@@ -1,8 +1,6 @@
 import createUnistore from 'unistore';
 import devtools from 'unistore/devtools';
 
-import storage from './storage';
-
 /**
  * Exports the store with the default state
  *
@@ -10,10 +8,10 @@ import storage from './storage';
  */
 const createStore = () => {
     const initialState = {
-        programming: storage.get("programming") || []
+        route: "intro"
     };
 
-    return process.env.NODE_ENV === 'production' ?  createUnistore(initialState) : devtools(createUnistore(initialState));
+    return process.env.NODE_ENV === 'production' ? createUnistore(initialState) : devtools(createUnistore(initialState));
 };
 
 /**
@@ -23,13 +21,13 @@ const createStore = () => {
  */
 const actions = () => {
     return {
-        setProgrammingData(state, payload) {
+        updateRouter(state, payload) {
             return {
-                programming: payload.programming
+                route: payload
             };
         }
     };
 };
 
-export { actions };
+export {actions};
 export default createStore();

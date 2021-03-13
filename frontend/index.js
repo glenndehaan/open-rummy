@@ -5,8 +5,10 @@ import {Provider} from 'unistore/preact';
 
 import store from './modules/store';
 
+import Pages from './pages';
+
 /**
  * Initialize the app
  */
 document.querySelector('#app').innerHTML = "";
-render(<Provider store={store}><div>Hello</div></Provider>, document.querySelector('#app'));
+render(<Provider store={store}><Pages/></Provider>, document.querySelector('#app'));
