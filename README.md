@@ -1,5 +1,7 @@
 # Open Rummy
 
+A companion website for playing the Open Rummy card game
+
 ## Structure
 - ES6 Javascript
 - Preact
