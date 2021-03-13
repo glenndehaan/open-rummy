@@ -1,15 +1,17 @@
 import {h, Component, Fragment} from 'preact';
 import {connect} from 'unistore/preact';
 
-import Players from '../components/Players';
+import PlayersOverview from '../components/Players';
 
 import Intro from './Intro';
+import Players from './Players';
 
 /**
  * Define all pages
  */
 const pages = {
-    intro: Intro
+    intro: Intro,
+    players: Players
 };
 
 class Pages extends Component {
@@ -32,7 +34,7 @@ class Pages extends Component {
         if(IconComp) {
             return (
                 <>
-                    <Players/>
+                    <PlayersOverview/>
                     <main>
                         <IconComp/>
                     </main>

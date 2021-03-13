@@ -11,7 +11,7 @@ class Intro extends Component {
     }
 
     /**
-     * Update the router to the next tab
+     * Update the router to the next step
      */
     nextStep() {
         this.props.updateRouter('players');
