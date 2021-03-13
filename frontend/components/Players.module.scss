@@ -3,8 +3,18 @@
   grid-template-columns: repeat(var(--players), 1fr);
   grid-template-rows: 1fr;
   gap: 0 0;
+
+  height: 63px;
+  border-bottom: 1px solid var(--color-soft-border);
+  background-color: var(--color-soft-background);
 }
 
 .player {
   text-align: center;
+  border-right: 1px solid var(--color-soft-border);
+  padding: 10px;
+
+  &:last-child {
+    border-right: none;
+  }
 }
