@@ -17,6 +17,9 @@ class Players extends Component {
                 {players.map((player, key) => (
                     <div key={key} className={style.player}>Player {key + 1}:<br/>{player}</div>
                 ))}
+                {players.length < 1 &&
+                    <div className={style.player && style.noPlayer}>Waiting for players info...</div>
+                }
             </header>
         );
     }
