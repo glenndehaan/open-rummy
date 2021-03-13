@@ -1,6 +1,8 @@
 import {h, Component} from 'preact';
 import {connect} from 'unistore/preact';
 
+import style from './Players.module.scss';
+
 class Players extends Component {
     /**
      * Preact render function
@@ -11,9 +13,9 @@ class Players extends Component {
         const {players} = this.props;
 
         return (
-            <header>
+            <header className={style.container}>
                 {players.map((player, key) => (
-                    <div key={key}>Player {key + 1}: {player}</div>
+                    <div key={key} className={style.player}>Player {key + 1}:<br/>{player}</div>
                 ))}
             </header>
         );

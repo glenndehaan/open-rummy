@@ -33,7 +33,6 @@ class Players extends Component {
      */
     nextStep() {
         this.props.setPlayers(Object.keys(this.elements).map((el) => {
-            console.log('this.elements[el]', this.elements[el]);
             return this.elements[el].current.value;
         }).filter((el) => {
             return el !== "";
