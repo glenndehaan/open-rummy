@@ -13,6 +13,8 @@ const createStore = () => {
             started: false,
             finished: false,
             points: {},
+            wins: [],
+            win: "",
             turn: ""
         },
         route: "intro"
