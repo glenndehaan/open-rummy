@@ -60,35 +60,35 @@ class Players extends Component {
                     <div className={style.container}>
                         <span>
                             <Icon type="person" className={style.icon}/>
-                            <input type="text" className={style.playerInput} placeholder="Player 1 Name" ref={this.elements.player1}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 1 Name" ref={this.elements.player1} maxLength="10"/>
                         </span>
                         <span>
                             <Icon type="person" className={style.icon}/>
-                            <input type="text" className={style.playerInput} placeholder="Player 2 Name" ref={this.elements.player2}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 2 Name" ref={this.elements.player2} maxLength="10"/>
                         </span>
                         <span>
                             <Icon type="person" className={style.icon}/>
-                            <input type="text" className={style.playerInput} placeholder="Player 3 Name" ref={this.elements.player3}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 3 Name" ref={this.elements.player3} maxLength="10"/>
                         </span>
                         <span>
                             <Icon type="person" className={style.icon}/>
-                            <input type="text" className={style.playerInput} placeholder="Player 4 Name" ref={this.elements.player4}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 4 Name" ref={this.elements.player4} maxLength="10"/>
                         </span>
                         <span>
                             <Icon type="person" className={style.icon}/>
-                            <input type="text" className={style.playerInput} placeholder="Player 5 Name" ref={this.elements.player5}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 5 Name" ref={this.elements.player5} maxLength="10"/>
                         </span>
                         <span>
                             <Icon type="person" className={style.icon}/>
-                            <input type="text" className={style.playerInput} placeholder="Player 6 Name" ref={this.elements.player6}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 6 Name" ref={this.elements.player6} maxLength="10"/>
                         </span>
                         <span>
                             <Icon type="person" className={style.icon}/>
-                            <input type="text" className={style.playerInput} placeholder="Player 7 Name" ref={this.elements.player7}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 7 Name" ref={this.elements.player7} maxLength="10"/>
                         </span>
                         <span>
                             <Icon type="person" className={style.icon}/>
-                            <input type="text" className={style.playerInput} placeholder="Player 8 Name" ref={this.elements.player8}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 8 Name" ref={this.elements.player8} maxLength="10"/>
                         </span>
                     </div>
                 </section>

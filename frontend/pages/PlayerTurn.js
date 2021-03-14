@@ -3,6 +3,7 @@ import {connect} from 'unistore/preact';
 import {actions} from '../modules/store';
 
 import ButtonBar from '../components/ButtonBar';
+import Points from '../components/Points';
 
 class PlayerTurn extends Component {
     /**
@@ -18,11 +19,14 @@ class PlayerTurn extends Component {
      * @returns {*}
      */
     render() {
+        const {players, game} = this.props;
+
         return (
             <>
                 <section>
-                    <h1>Turn</h1>
-                    <span>Enter the total point made this turn</span>
+                    <h1>{players[game.turn]}&apos;s Turn</h1>
+                    <span>Enter the total amount of points made this turn</span>
+                    <Points/>
                 </section>
                 <ButtonBar buttons={[{text: "Next player", color: "success", click: () => {}}, {text: "End round", color: "error", click: () => {}}]}/>
             </>
@@ -33,4 +37,4 @@ class PlayerTurn extends Component {
 /**
  * Connect the store to the component
  */
-export default connect('route,players', actions)(PlayerTurn);
+export default connect('route,players,game', actions)(PlayerTurn);
