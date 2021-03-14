@@ -8,17 +8,18 @@ import devtools from 'unistore/devtools';
  */
 const createStore = () => {
     const initialState = {
-        players: [],
-        loss: [],
+        players: [], // Defines the player names
+        loss: [], // Defines the player index that need to collect a loss
         game: {
-            started: false,
-            finished: false,
-            points: {},
-            wins: [],
-            win: -1,
-            turn: -1
+            started: false, // Defines if a game is started
+            finished: false, // Defines if a game is finished
+            points: {}, // Defines the player points
+            wins: [], // Defines the player indexes that have won a round
+            win: -1, // Defines the player index that has won the game
+            rotation: -1, // Defines the player index that needs to start in the next round
+            turn: -1 // Defines the player index that is active
         },
-        route: "intro"
+        route: "intro" // Defines the current route
     };
 
     return process.env.NODE_ENV === 'production' ? createUnistore(initialState) : devtools(createUnistore(initialState));
@@ -56,6 +57,7 @@ const actions = () => {
                     points,
                     wins: [],
                     win: -1,
+                    rotation: 1,
                     turn: 0
                 }
             };
@@ -96,7 +98,8 @@ const actions = () => {
                 loss: state.players.map((e, key) => {return key}).filter((e) => {return e !== state.game.turn}),
                 game: {
                     ...state.game,
-                    turn: 0
+                    rotation: (state.game.rotation + 1) === state.players.length ? 0 : (state.game.rotation + 1),
+                    turn: state.game.rotation
                 }
             };
 
