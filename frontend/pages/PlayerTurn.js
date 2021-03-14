@@ -31,6 +31,15 @@ class PlayerTurn extends Component {
     }
 
     /**
+     * Handles the end round function
+     */
+    endRound() {
+        this.props.addPoints(this.points.current.state.value);
+        this.props.endRound();
+        this.props.updateRouter('playerLoss');
+    }
+
+    /**
      * Preact render function
      *
      * @returns {*}
@@ -45,7 +54,7 @@ class PlayerTurn extends Component {
                     <span>Enter the total amount of points made this turn</span>
                     <Points turn={game.turn} ref={this.points}/>
                 </section>
-                <ButtonBar buttons={[{text: "Next player", color: "success", click: () => this.nextPlayer()}, {text: "End round", color: "error", click: () => {}}]}/>
+                <ButtonBar buttons={[{text: "Next player", color: "success", click: () => this.nextPlayer()}, {text: "End round", color: "error", click: () => this.endRound()}]}/>
             </>
         );
     }

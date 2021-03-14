@@ -9,6 +9,7 @@ import devtools from 'unistore/devtools';
 const createStore = () => {
     const initialState = {
         players: [],
+        loss: [],
         game: {
             started: false,
             finished: false,
@@ -77,6 +78,19 @@ const actions = () => {
                     turn: (state.game.turn + 1) !== state.players.length ? (state.game.turn + 1) : 0
                 }
             };
+        },
+        endRound(state) {
+            const newState = {
+                loss: state.players.map((e, key) => {return key}).filter((e) => {return e !== state.game.turn}),
+                game: {
+                    ...state.game,
+                    turn: 0
+                }
+            };
+
+            newState.game.wins.push(state.game.turn);
+
+            return newState;
         }
     };
 };
