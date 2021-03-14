@@ -18,6 +18,7 @@ class GameOver extends Component {
      * Handles the restart function
      */
     restart() {
+        this.props.setPlayers([]);
         this.props.updateRouter('players');
     }
 
