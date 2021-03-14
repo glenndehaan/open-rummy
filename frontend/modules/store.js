@@ -36,8 +36,6 @@ const actions = () => {
             };
         },
         setPlayers(state, payload) {
-            document.documentElement.style.setProperty('--players', payload.length);
-
             return {
                 players: payload
             };
