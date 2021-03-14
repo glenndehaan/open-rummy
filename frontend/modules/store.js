@@ -58,6 +58,25 @@ const actions = () => {
                     turn: 0
                 }
             };
+        },
+        addPoints(state, payload) {
+            const newState = {
+                game: {
+                    ...state.game
+                }
+            };
+
+            newState.game.points[state.players[state.game.turn]] += parseInt(payload);
+
+            return newState;
+        },
+        nextPlayer(state) {
+            return {
+                game: {
+                    ...state.game,
+                    turn: (state.game.turn + 1) !== state.players.length ? (state.game.turn + 1) : 0
+                }
+            };
         }
     };
 };

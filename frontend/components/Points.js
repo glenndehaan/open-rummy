@@ -16,6 +16,19 @@ export default class Points extends Component {
     }
 
     /**
+     * Runs before component updates
+     *
+     * @param nextProps
+     */
+    componentWillUpdate(nextProps) {
+        if(nextProps.turn !== this.props.turn) {
+            this.setState({
+                value: ''
+            });
+        }
+    }
+
+    /**
      * Update the value
      *
      * @param value

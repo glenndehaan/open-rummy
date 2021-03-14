@@ -1,4 +1,4 @@
-import {h, Component, Fragment} from 'preact';
+import {h, Component, Fragment, createRef} from 'preact';
 import {connect} from 'unistore/preact';
 import {actions} from '../modules/store';
 
@@ -7,10 +7,27 @@ import Points from '../components/Points';
 
 class PlayerTurn extends Component {
     /**
+     * Constructor
+     */
+    constructor() {
+        super();
+
+        this.points = createRef();
+    }
+
+    /**
      * Runs then component mounts
      */
     componentDidMount() {
         document.title = 'Game | Open Rummy';
+    }
+
+    /**
+     * Handles the next player function
+     */
+    nextPlayer() {
+        this.props.addPoints(this.points.current.state.value);
+        this.props.nextPlayer();
     }
 
     /**
@@ -26,9 +43,9 @@ class PlayerTurn extends Component {
                 <section>
                     <h1>{players[game.turn]}&apos;s Turn</h1>
                     <span>Enter the total amount of points made this turn</span>
-                    <Points/>
+                    <Points turn={game.turn} ref={this.points}/>
                 </section>
-                <ButtonBar buttons={[{text: "Next player", color: "success", click: () => {}}, {text: "End round", color: "error", click: () => {}}]}/>
+                <ButtonBar buttons={[{text: "Next player", color: "success", click: () => this.nextPlayer()}, {text: "End round", color: "error", click: () => {}}]}/>
             </>
         );
     }
