@@ -14,8 +14,8 @@ const createStore = () => {
             finished: false,
             points: {},
             wins: [],
-            win: "",
-            turn: ""
+            win: -1,
+            turn: -1
         },
         route: "intro"
     };
@@ -38,6 +38,25 @@ const actions = () => {
         setPlayers(state, payload) {
             return {
                 players: payload
+            };
+        },
+        startGame(state) {
+            const points = {};
+
+            for(let item = 0; item < state.players.length; item++) {
+                const player = state.players[item];
+                points[player] = 0;
+            }
+
+            return {
+                game: {
+                    started: true,
+                    finished: false,
+                    points,
+                    wins: [],
+                    win: -1,
+                    turn: 0
+                }
             };
         }
     };

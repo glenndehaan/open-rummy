@@ -42,6 +42,7 @@ class Players extends Component {
         }).filter((el) => {
             return el !== "";
         }));
+        this.props.startGame();
         this.props.updateRouter('playerTurn');
     }
 
@@ -55,7 +56,7 @@ class Players extends Component {
             <>
                 <section>
                     <h1>Players</h1>
-                    <span>Please provide all player names below. Note: Leave player names empty if you don&apos;t need them.</span>
+                    <span>Please provide all player names below. Make sure to set the order the same as your table setting. Note: Leave player names empty if you don&apos;t need them.</span>
                     <div className={style.container}>
                         <span>
                             <Icon type="person" className={style.icon}/>
