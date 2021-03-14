@@ -16,7 +16,7 @@ class Players extends Component {
         return (
             <header className={style.container}>
                 {players.map((player, key) => (
-                    <div key={key} className={clsx(style.player, (game.turn === key && loss.length < 1) && style.active)}>{player}<br/>Points: {game.points[player]} / Wins: {game.wins.filter((e) => {return e === key}).length}</div>
+                    <div key={key} className={clsx(style.player, (game.turn === key && loss.length < 1 && !game.finished) && style.active)}>{player}<br/>Points: {game.points[player]} / Wins: {game.wins.filter((e) => {return e === key}).length}</div>
                 ))}
                 {players.length < 1 &&
                     <div className={style.player && style.noPlayer}>Waiting for players info...</div>
