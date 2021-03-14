@@ -1,4 +1,4 @@
-import {h, Component} from 'preact';
+import {h, Component, Fragment} from 'preact';
 import {connect} from 'unistore/preact';
 import {actions} from '../modules/store';
 
@@ -26,10 +26,12 @@ class Intro extends Component {
      */
     render() {
         return (
-            <div>
-                Intro<br/>
+            <>
+                <section>
+                    Intro<br/>
+                </section>
                 <ButtonBar buttons={[{text: "Let's start!", color: 'success', click: () => this.nextStep()}]}/>
-            </div>
+            </>
         );
     }
 }

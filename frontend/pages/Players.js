@@ -1,8 +1,11 @@
-import {h, Component, createRef} from 'preact';
+import {h, Component, Fragment, createRef} from 'preact';
 import {connect} from 'unistore/preact';
 import {actions} from '../modules/store';
 
 import ButtonBar from '../components/ButtonBar';
+import Icon from '../components/Icons';
+
+import style from './Players.module.scss';
 
 class Players extends Component {
     /**
@@ -49,17 +52,47 @@ class Players extends Component {
      */
     render() {
         return (
-            <div>
-                <input type="text" placeholder="Player 1 Name" ref={this.elements.player1}/><br/>
-                <input type="text" placeholder="Player 2 Name" ref={this.elements.player2}/><br/>
-                <input type="text" placeholder="Player 3 Name" ref={this.elements.player3}/><br/>
-                <input type="text" placeholder="Player 4 Name" ref={this.elements.player4}/><br/>
-                <input type="text" placeholder="Player 5 Name" ref={this.elements.player5}/><br/>
-                <input type="text" placeholder="Player 6 Name" ref={this.elements.player6}/><br/>
-                <input type="text" placeholder="Player 7 Name" ref={this.elements.player7}/><br/>
-                <input type="text" placeholder="Player 8 Name" ref={this.elements.player8}/><br/>
+            <>
+                <section>
+                    <h1>Players</h1>
+                    <span>Please provide all player names below. Note: Leave player names empty if you don&apos;t need them.</span>
+                    <div className={style.container}>
+                        <span>
+                            <Icon type="person" className={style.icon}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 1 Name" ref={this.elements.player1}/>
+                        </span>
+                        <span>
+                            <Icon type="person" className={style.icon}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 2 Name" ref={this.elements.player2}/>
+                        </span>
+                        <span>
+                            <Icon type="person" className={style.icon}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 3 Name" ref={this.elements.player3}/>
+                        </span>
+                        <span>
+                            <Icon type="person" className={style.icon}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 4 Name" ref={this.elements.player4}/>
+                        </span>
+                        <span>
+                            <Icon type="person" className={style.icon}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 5 Name" ref={this.elements.player5}/>
+                        </span>
+                        <span>
+                            <Icon type="person" className={style.icon}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 6 Name" ref={this.elements.player6}/>
+                        </span>
+                        <span>
+                            <Icon type="person" className={style.icon}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 7 Name" ref={this.elements.player7}/>
+                        </span>
+                        <span>
+                            <Icon type="person" className={style.icon}/>
+                            <input type="text" className={style.playerInput} placeholder="Player 8 Name" ref={this.elements.player8}/>
+                        </span>
+                    </div>
+                </section>
                 <ButtonBar buttons={[{text: "Save players", color: "success", click: () => this.nextStep()}]}/>
-            </div>
+            </>
         );
     }
 }

@@ -1,4 +1,4 @@
-import {h, Component} from 'preact';
+import {h, Component, Fragment} from 'preact';
 import {connect} from 'unistore/preact';
 import {actions} from '../modules/store';
 
@@ -19,10 +19,12 @@ class PlayerTurn extends Component {
      */
     render() {
         return (
-            <div>
-                Turn
+            <>
+                <section>
+                    Turn
+                </section>
                 <ButtonBar buttons={[{text: "Next player", color: "success", click: () => {}}, {text: "End round", color: "error", click: () => {}}]}/>
-            </div>
+            </>
         );
     }
 }

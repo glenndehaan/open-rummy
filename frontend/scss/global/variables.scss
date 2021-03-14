@@ -1,5 +1,7 @@
 // Default CSS Variables
 :root {
+  --container-gap: 32px;
+
   @include lightMode;
 }
 
