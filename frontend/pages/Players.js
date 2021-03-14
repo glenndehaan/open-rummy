@@ -49,7 +49,7 @@ class Players extends Component {
      */
     render() {
         return (
-            <main>
+            <div>
                 <input type="text" placeholder="Player 1 Name" ref={this.elements.player1}/><br/>
                 <input type="text" placeholder="Player 2 Name" ref={this.elements.player2}/><br/>
                 <input type="text" placeholder="Player 3 Name" ref={this.elements.player3}/><br/>
@@ -59,7 +59,7 @@ class Players extends Component {
                 <input type="text" placeholder="Player 7 Name" ref={this.elements.player7}/><br/>
                 <input type="text" placeholder="Player 8 Name" ref={this.elements.player8}/><br/>
                 <ButtonBar buttons={[{text: "Save players", color: "success", click: () => this.nextStep()}]}/>
-            </main>
+            </div>
         );
     }
 }

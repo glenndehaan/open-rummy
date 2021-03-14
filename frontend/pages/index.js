@@ -5,13 +5,15 @@ import PlayersOverview from '../components/Players';
 
 import Intro from './Intro';
 import Players from './Players';
+import PlayerTurn from './PlayerTurn';
 
 /**
  * Define all pages
  */
 const pages = {
     intro: Intro,
-    players: Players
+    players: Players,
+    playerTurn: PlayerTurn
 };
 
 class Pages extends Component {
@@ -22,14 +24,14 @@ class Pages extends Component {
      */
     render() {
         const {route} = this.props;
-        const IconComp = pages[route];
+        const Cmp = pages[route];
 
-        if(IconComp) {
+        if(Cmp) {
             return (
                 <>
                     <PlayersOverview/>
                     <main>
-                        <IconComp/>
+                        <Cmp/>
                     </main>
                 </>
             );

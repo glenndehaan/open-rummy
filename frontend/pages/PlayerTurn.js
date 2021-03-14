@@ -4,19 +4,12 @@ import {actions} from '../modules/store';
 
 import ButtonBar from '../components/ButtonBar';
 
-class Intro extends Component {
+class PlayerTurn extends Component {
     /**
      * Runs then component mounts
      */
     componentDidMount() {
-        document.title = 'Intro | Open Rummy';
-    }
-
-    /**
-     * Update the router to the next step
-     */
-    nextStep() {
-        this.props.updateRouter('players');
+        document.title = 'Game | Open Rummy';
     }
 
     /**
@@ -27,8 +20,8 @@ class Intro extends Component {
     render() {
         return (
             <div>
-                Intro<br/>
-                <ButtonBar buttons={[{text: "Let's start!", color: 'success', click: () => this.nextStep()}]}/>
+                Turn
+                <ButtonBar buttons={[{text: "Next player", color: "success", click: () => {}}, {text: "End round", color: "error", click: () => {}}]}/>
             </div>
         );
     }
@@ -37,4 +30,4 @@ class Intro extends Component {
 /**
  * Connect the store to the component
  */
-export default connect('route', actions)(Intro);
+export default connect('route,players', actions)(PlayerTurn);
