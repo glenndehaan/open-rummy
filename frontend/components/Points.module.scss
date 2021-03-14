@@ -1,7 +1,7 @@
 .container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 15px 10px;
+  gap: 15px 0;
 
   margin-top: 20px;
 }
@@ -24,4 +24,29 @@
   font-weight: bold;
 
   text-align: center;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 5px 5px;
+}
+
+.key {
+  width: 75px;
+  height: 50px;
+
+  color: var(--color-success);
+  background-color: var(--color-success-background);
+}
+
+.warningColor {
+  color: var(--color-warning);
+  background-color: var(--color-warning-background);
+}
+
+.zero {
+  width: 100%;
+  grid-column: auto / span 2;
 }
