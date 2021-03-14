@@ -14,6 +14,10 @@ class Players extends Component {
     constructor() {
         super();
 
+        this.state = {
+            error: false
+        };
+
         this.elements = {
             player1: createRef(),
             player2: createRef(),
@@ -37,11 +41,21 @@ class Players extends Component {
      * Update the router to the next step
      */
     nextStep() {
-        this.props.setPlayers(Object.keys(this.elements).map((el) => {
+        const players = Object.keys(this.elements).map((el) => {
             return this.elements[el].current.value;
         }).filter((el) => {
             return el !== "";
-        }));
+        });
+
+        if(players.length < 2) {
+            this.setState({
+                error: true
+            });
+
+            return;
+        }
+
+        this.props.setPlayers(players);
         this.props.startGame();
         this.props.updateRouter('playerTurn');
     }
@@ -52,9 +66,14 @@ class Players extends Component {
      * @returns {*}
      */
     render() {
+        const {error} = this.state;
+
         return (
             <>
                 <section>
+                    {error &&
+                        <div className={style.error}>At least two players are required!!</div>
+                    }
                     <h1>Players</h1>
                     <span>Please provide all player names below. Make sure to set the order the same as your table setting. Note: Leave player names empty if you don&apos;t need them.</span>
                     <div className={style.container}>

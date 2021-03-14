@@ -26,7 +26,7 @@ class PlayerLoss extends Component {
      * Handles the next player function
      */
     nextPlayer() {
-        this.props.removePoints(this.points.current.state.value);
+        this.props.removePoints(this.points.current.state.value !== '' ? this.points.current.state.value : 0);
 
         if((this.props.loss.length - 1) === 0) {
             const gameOver = Object.keys(this.props.game.points).filter((e) => {

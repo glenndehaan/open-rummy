@@ -28,7 +28,7 @@ class PlayerTurn extends Component {
      * Handles the next player function
      */
     nextPlayer() {
-        this.props.addPoints(this.points.current.state.value);
+        this.props.addPoints(this.points.current.state.value !== '' ? this.points.current.state.value : 0);
         this.props.nextPlayer();
     }
 
@@ -36,7 +36,7 @@ class PlayerTurn extends Component {
      * Handles the end round function
      */
     endRound() {
-        this.props.addPoints(this.points.current.state.value);
+        this.props.addPoints(this.points.current.state.value !== '' ? this.points.current.state.value : 0);
         this.props.endRound();
         this.props.updateRouter('playerLoss');
     }
