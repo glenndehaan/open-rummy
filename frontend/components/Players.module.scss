@@ -22,3 +22,8 @@
   padding: 0;
   text-align: center;
 }
+
+.active {
+  color: var(--color-success);
+  background-color: var(--color-success-background);
+}

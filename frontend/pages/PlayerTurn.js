@@ -21,7 +21,8 @@ class PlayerTurn extends Component {
         return (
             <>
                 <section>
-                    Turn
+                    <h1>Turn</h1>
+                    <span>Enter the total point made this turn</span>
                 </section>
                 <ButtonBar buttons={[{text: "Next player", color: "success", click: () => {}}, {text: "End round", color: "error", click: () => {}}]}/>
             </>
