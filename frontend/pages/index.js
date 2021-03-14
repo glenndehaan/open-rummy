@@ -6,6 +6,8 @@ import PlayersOverview from '../components/Players';
 import Intro from './Intro';
 import Players from './Players';
 import PlayerTurn from './PlayerTurn';
+import PlayerLoss from './PlayerLoss';
+import GameOver from './GameOver';
 
 /**
  * Define all pages
@@ -13,7 +15,9 @@ import PlayerTurn from './PlayerTurn';
 const pages = {
     intro: Intro,
     players: Players,
-    playerTurn: PlayerTurn
+    playerTurn: PlayerTurn,
+    playerLoss: PlayerLoss,
+    gameOver: GameOver
 };
 
 class Pages extends Component {

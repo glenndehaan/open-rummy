@@ -71,6 +71,18 @@ const actions = () => {
 
             return newState;
         },
+        removePoints(state, payload) {
+            const newState = {
+                loss: state.loss.filter((e, key) => {return key !== 0}),
+                game: {
+                    ...state.game
+                }
+            };
+
+            newState.game.points[state.players[state.loss[0]]] -= parseInt(payload);
+
+            return newState;
+        },
         nextPlayer(state) {
             return {
                 game: {
@@ -91,6 +103,19 @@ const actions = () => {
             newState.game.wins.push(state.game.turn);
 
             return newState;
+        },
+        gameOver(state) {
+            const keys = Object.keys(state.game.points);
+            const sort = keys.sort((a, b) => { return state.game.points[b] - state.game.points[a] });
+
+            return {
+                game: {
+                    ...state.game,
+                    started: false,
+                    finished: true,
+                    win: state.players.indexOf(sort[0])
+                }
+            };
         }
     };
 };

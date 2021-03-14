@@ -11,12 +11,12 @@ class Players extends Component {
      * @returns {*}
      */
     render() {
-        const {players, game} = this.props;
+        const {players, game, loss} = this.props;
 
         return (
             <header className={style.container}>
                 {players.map((player, key) => (
-                    <div key={key} className={clsx(style.player, game.turn === key && style.active)}>{player}<br/>Points: {game.points[player]} / Wins: {game.wins.filter((e) => {return e === key}).length}</div>
+                    <div key={key} className={clsx(style.player, (game.turn === key && loss.length < 1) && style.active)}>{player}<br/>Points: {game.points[player]} / Wins: {game.wins.filter((e) => {return e === key}).length}</div>
                 ))}
                 {players.length < 1 &&
                     <div className={style.player && style.noPlayer}>Waiting for players info...</div>
@@ -29,4 +29,4 @@ class Players extends Component {
 /**
  * Connect the store to the component
  */
-export default connect('players,game')(Players);
+export default connect('players,game,loss')(Players);

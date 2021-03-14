@@ -5,6 +5,8 @@ import {actions} from '../modules/store';
 import ButtonBar from '../components/ButtonBar';
 import Points from '../components/Points';
 
+import style from './PlayerTurn.module.scss';
+
 class PlayerTurn extends Component {
     /**
      * Constructor
@@ -50,7 +52,7 @@ class PlayerTurn extends Component {
         return (
             <>
                 <section>
-                    <h1>{players[game.turn]}&apos;s Turn</h1>
+                    <h1>{players[game.turn]}&apos;s Turn <span className={style.smaller}>(Round {game.wins.length + 1})</span></h1>
                     <span>Enter the total amount of points made this turn</span>
                     <Points turn={game.turn} ref={this.points}/>
                 </section>

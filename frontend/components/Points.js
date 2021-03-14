@@ -55,10 +55,12 @@ export default class Points extends Component {
      */
     render() {
         const {value} = this.state;
+        const {negative = false} = this.props;
 
         return (
             <div className={style.container}>
                 <span className={style.center}>
+                    {negative && '-'}
                     <input type="number" className={style.numberInput} value={value} disabled={true}/>
                     points
                 </span>
