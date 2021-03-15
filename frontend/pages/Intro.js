@@ -32,9 +32,10 @@ class Intro extends Component {
                 <section className={style.container}>
                     <h1>Open Rummy (Playing Card Game)</h1>
                     <p>
-                        Aantal spelers; 2 tot 6<br/>
-                        Kaarten; standaard pak van 52 kaarten<br/>
-                        Speelrichting: Met de klok mee
+                        <strong>Aantal spelers:</strong> 2 tot 6<br/>
+                        <strong>Kaarten:</strong> standaard pak van 52 kaarten<br/>
+                        <strong>Leeftijd:</strong> 18+<br/>
+                        <strong>Speelrichting:</strong> Met de klok mee
                     </p>
                     <p>
                         De volgorde van de kaarten voor sequenties is A-2-3-4-5-6-7-8-9-10-B-V-H in iedere bloem.<br/>
@@ -69,14 +70,14 @@ class Intro extends Component {
                     <p>
                         Cumulatieve score wordt bijgehouden van hand tot hand totdat de afgesproken score bereikt is of het aantal handen is gespeeld.
                     </p>
+                    <h3>Variabele regels</h3>
                     <p>
-                        Variabele regels;<br/>
-                        Geen uitleglimiet; je mag zoveel combinaties uitleggen in een beurt als je wilt<br/>
-                        Aanlegverbod; je mag niet aanleggen zolang je zelf nog niet op tafel bent gekomen met minstens één combinatie<br/>
-                        Aas-hoog-laag; azen tellen zowel hoog als laag, en hebben een puntwaarde van 15.<br/>
-                        Aas-brug; azen vormen een brug tussen de K en de 2<br/>
-                        Laatste kaart; je bent altijd verplicht om een kaart af te leggen, je mag niet al je kaarten aan- of uitleggen<br/>
-                        Tussendoor schudden; sommigen schudden de Aflegstapel alvorens een nieuwe Stok te vormen
+                        <strong>Geen uitleglimiet;</strong> je mag zoveel combinaties uitleggen in een beurt als je wilt<br/>
+                        <strong>Aanlegverbod;</strong> je mag niet aanleggen zolang je zelf nog niet op tafel bent gekomen met minstens één combinatie<br/>
+                        <strong>Aas-hoog-laag;</strong> azen tellen zowel hoog als laag, en hebben een puntwaarde van 15.<br/>
+                        <strong>Aas-brug;</strong> azen vormen een brug tussen de K en de 2<br/>
+                        <strong>Laatste kaart;</strong> je bent altijd verplicht om een kaart af te leggen, je mag niet al je kaarten aan- of uitleggen<br/>
+                        <strong>Tussendoor schudden;</strong> sommigen schudden de Aflegstapel alvorens een nieuwe Stok te vormen
                     </p>
                 </section>
                 <ButtonBar buttons={[{text: "Let's start!", color: 'success', click: () => this.nextStep()}]}/>
