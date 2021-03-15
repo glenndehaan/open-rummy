@@ -32,10 +32,10 @@ class Intro extends Component {
                 <section className={style.container}>
                     <h1>Open Rummy (Playing Card Game)</h1>
                     <p>
-                        <strong>Aantal spelers:</strong> 2 tot 6<br/>
-                        <strong>Kaarten:</strong> standaard pak van 52 kaarten<br/>
-                        <strong>Leeftijd:</strong> 18+<br/>
-                        <strong>Speelrichting:</strong> Met de klok mee
+                        <strong>Total Players:</strong> 2 - 8<br/>
+                        <strong>Cards:</strong> 2x standard deck of 52 playing cards (104 cards total)<br/>
+                        <strong>Age:</strong> 18+<br/>
+                        <strong>Playing Direction:</strong> Clockwise
                     </p>
                     <p>
                         De volgorde van de kaarten voor sequenties is A-2-3-4-5-6-7-8-9-10-B-V-H in iedere bloem.<br/>
