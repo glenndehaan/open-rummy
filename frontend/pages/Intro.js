@@ -31,6 +31,12 @@ class Intro extends Component {
             <>
                 <section className={style.container}>
                     <h1>Open Rummy (Playing Card Game)</h1>
+                    <h2 className={style.space}>This Website</h2>
+                    <p>
+                        This website acts as a companion for playing the Open Rummy card game.<br/>
+                        It allows for automated point calculations, round win status, current player turn and money calculations.
+                    </p>
+                    <h2>Basic Game Details</h2>
                     <p>
                         <strong>Total Players:</strong> 2 - 8<br/>
                         <strong>Cards:</strong> 2x standard deck of 52 playing cards (104 cards total)<br/>
