@@ -8,7 +8,9 @@ const projectRoot = path.join(__dirname, '../');
 const buildDirectory = path.join(projectRoot, 'frontend');
 const distDirectory = path.join(projectRoot, 'build');
 
-module.exports = {
+const prod = process.env.NODE_ENV === "production";
+
+const config = {
     performance: {
         hints: false
     },
@@ -87,3 +89,9 @@ module.exports = {
         })
     ]
 };
+
+if(!prod) {
+    config.devtool = 'cheap-module-source-map';
+}
+
+module.exports = config;
