@@ -41,12 +41,12 @@ class Intro extends Component {
                         De volgorde van de kaarten voor sequenties is A-2-3-4-5-6-7-8-9-10-B-V-H in iedere bloem.<br/>
                         Men speelt tot een bepaalde score vooraf bepaald of een vast aantal handen.
                     </p>
-                    <h3>Delen</h3>
+                    <h2>Delen</h2>
                     <p>
                         Coupeer om de eerste Deler te bepalen. Deler wisselt iedere hand met de speelrichting mee.<br/>
                         Met 2 spelers krijgt ieder 10 kaarten. Met 3 of 4 spelers krijgt ieder 7 kaarten, met 5 of 6 spelers ieder 6 kaarten.  Deel de kaarten één voor één, de overige kaarten vormen een Stok. Draai de eerste kaart hiervan om en leg hem open neer om de Aflegstapel te beginnen.
                     </p>
-                    <h3>Spel</h3>
+                    <h2>Spel</h2>
                     <p>
                         Voorhand is als eerste aan de beurt. Je beurt bestaat minimaal uit twee verplichte acties;<br/>
                         1. Een kaart trekken om je beurt te beginnen, zij het de bovenste kaart van de gedekte Stok of de bovenste kaart van de open Aflegstapel.<br/>
@@ -70,7 +70,7 @@ class Intro extends Component {
                     <p>
                         Cumulatieve score wordt bijgehouden van hand tot hand totdat de afgesproken score bereikt is of het aantal handen is gespeeld.
                     </p>
-                    <h3>Variabele regels</h3>
+                    <h2>Variabele regels</h2>
                     <p>
                         <strong>Geen uitleglimiet;</strong> je mag zoveel combinaties uitleggen in een beurt als je wilt<br/>
                         <strong>Aanlegverbod;</strong> je mag niet aanleggen zolang je zelf nog niet op tafel bent gekomen met minstens één combinatie<br/>

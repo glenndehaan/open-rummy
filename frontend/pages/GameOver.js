@@ -34,7 +34,7 @@ class GameOver extends Component {
             <>
                 <section>
                     <h1 className={style.header}>Game Over</h1>
-                    <h3>{players[game.win]} has won the game!!</h3>
+                    <h2>{players[game.win]} has won the game!!</h2>
                 </section>
                 <ButtonBar buttons={[{text: "New game", color: "success", click: () => this.restart()}]}/>
             </>
