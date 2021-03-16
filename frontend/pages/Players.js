@@ -75,7 +75,7 @@ class Players extends Component {
                         <div className={style.error}>At least two players are required!!</div>
                     }
                     <h1>Players</h1>
-                    <span>Please provide all player names below. Make sure to set the order the same as your table setting. Note: Leave player names empty if you don&apos;t need them.</span>
+                    <span>Please provide all player names below. Make sure to set the order the same as your table setting (Start with the first player after the dealer). Note: Leave player names empty if you don&apos;t need them.</span>
                     <div className={style.container}>
                         <span>
                             <Icon type="person" className={style.icon}/>
