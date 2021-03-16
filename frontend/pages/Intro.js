@@ -33,7 +33,7 @@ class Intro extends Component {
                     <h1>Open Rummy (Playing Card Game)</h1>
                     <h2 className={style.space}>This Website</h2>
                     <p>
-                        This website acts as a companion for playing the Open Rummy card game.<br/>
+                        This website acts as a tool for playing the Open Rummy card game.<br/>
                         It allows for automated point calculations, round win status, current player turn and payout calculations.
                     </p>
                     <h2>Basic Game Details</h2>
@@ -49,7 +49,7 @@ class Intro extends Component {
                     </p>
                     <h2>Dealing</h2>
                     <p>
-                        Determine the first dealer. This could be done to shuffle the cards, give each player a closed card and turn it over. The player with the highest card is the dealer. The dealer swaps every round with the direction of play (Clockwise).<br/>
+                        Determine the first dealer. This could be done by shuffling the cards, give each player a closed card and turn it over. The player with the highest card is the dealer. The dealer swaps every round with the direction of play (Clockwise).<br/>
                         Every player gets 13 cards. Deal the cards one by one, the remaining cards form a deck where players can buy new cards from. Turn the first card over from the deck and place it face up to start the discard pile.
                     </p>
                     <h2>The Game</h2>
@@ -67,7 +67,7 @@ class Intro extends Component {
                         • Or; with the same value (3 kings).
                     </p>
                     <p>
-                        You may also add cards to an existing set, from who the set were does not matter. Placings sets or adding cards to an existing set can be done until you do not have any more sets or cannot add any more cards to existing sets. You than have to end your turn by placing a card to the discard pile.
+                        You may also add cards to an existing set, from who the set is does not matter. Placings sets or adding cards to an existing set can be done until you do not have any more sets or cannot add any more cards to existing sets. You than have to end your turn by placing a card on the discard pile.
                     </p>
                     <p>
                         Important to know is that a sequence of a set is always the same color. For instance, if you have a set of 7 spades, 8 spades and 9 spades you can place that set on the table. If the 8 of spades is 8 of harts, you cannot place that set on the table. The same applies for adding a card to the sequence.
@@ -76,22 +76,13 @@ class Intro extends Component {
                         When you are placing a set with the same value, for instance 3 aces. They have to be 3 different colors. A set with the same value can only exists of a maximum of 4 different colors (clubs, aces, diamonds and harts). When a set with the same value contains the 4 different colors it may be closed and put away from the game. They do not longer play a role in this round.
                     </p>
                     <p>
-                        By placing sets on table or adding cards to an existing set the player earns points. The following points can be earnt:<br/>
+                        By placing sets on table or adding cards to an existing set the player earns points. The following points can be earned:<br/>
                         The cards 2 till 9 are worth 5 points each.<br/>
                         The cards 10 till king are worth 10 points each.<br/>
                         The card ace is worth 15 points each.
                     </p>
                     <p>
-                        When a player places its last card at the discard pile it wins. The other players has to count their remaining hand as described above, these points will be subtracted form their collected points. When a player reached the 300 points it will win after the last played round. A player has not won when it is in a round where it achieved the 300 points margin and there has not been a player that put its last card to the discard pile. Only when a round is done and after subtracting the remaining point a player can win when still having those 300 points.
-                    </p>
-                    <h2>Variabele regels</h2>
-                    <p>
-                        <strong>Geen uitleglimiet;</strong> je mag zoveel combinaties uitleggen in een beurt als je wilt<br/>
-                        <strong>Aanlegverbod;</strong> je mag niet aanleggen zolang je zelf nog niet op tafel bent gekomen met minstens één combinatie<br/>
-                        <strong>Aas-hoog-laag;</strong> azen tellen zowel hoog als laag, en hebben een puntwaarde van 15.<br/>
-                        <strong>Aas-brug;</strong> azen vormen een brug tussen de K en de 2<br/>
-                        <strong>Laatste kaart;</strong> je bent altijd verplicht om een kaart af te leggen, je mag niet al je kaarten aan- of uitleggen<br/>
-                        <strong>Tussendoor schudden;</strong> sommigen schudden de Aflegstapel alvorens een nieuwe Stok te vormen
+                        When a player places its last card at the discard pile it wins. The other players have to count their remaining hand as described above, these points will be subtracted from their collected points. When a player has reached 300 points it will win after the last played round. A player has not won when it is in a round where it achieved the 300 points margin and there has not been a player that put its last card to the discard pile. Only when a round is done and after subtracting the remaining point a player can win when still having those 300 points.
                     </p>
                 </section>
                 <ButtonBar buttons={[{text: "Let's start!", color: 'success', click: () => this.nextStep()}]}/>
