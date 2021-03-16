@@ -15,6 +15,7 @@ body {
   color: var(--color-text);
   background-color: var(--color-background);
   overflow-x: hidden;
+  touch-action: manipulation;
 }
 
 main {
