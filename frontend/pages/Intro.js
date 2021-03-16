@@ -34,7 +34,7 @@ class Intro extends Component {
                     <h2 className={style.space}>This Website</h2>
                     <p>
                         This website acts as a companion for playing the Open Rummy card game.<br/>
-                        It allows for automated point calculations, round win status, current player turn and money calculations.
+                        It allows for automated point calculations, round win status, current player turn and payout calculations.
                     </p>
                     <h2>Basic Game Details</h2>
                     <p>
@@ -44,19 +44,19 @@ class Intro extends Component {
                         <strong>Playing Direction:</strong> Clockwise
                     </p>
                     <p>
-                        De volgorde van de kaarten voor sequenties is A-2-3-4-5-6-7-8-9-10-B-V-H in iedere bloem.<br/>
-                        Men speelt tot een bepaalde score vooraf bepaald of een vast aantal handen.
+                        The order of cards for sequences is 2-3-4-5-6-7-8-9-10-J-Q-K-A in each round.<br/>
+                        You play up to 300 points. When a player reaches this amount of points the player wins and it is game over.
                     </p>
-                    <h2>Delen</h2>
+                    <h2>Dealing</h2>
                     <p>
-                        Coupeer om de eerste Deler te bepalen. Deler wisselt iedere hand met de speelrichting mee.<br/>
-                        Met 2 spelers krijgt ieder 10 kaarten. Met 3 of 4 spelers krijgt ieder 7 kaarten, met 5 of 6 spelers ieder 6 kaarten.  Deel de kaarten één voor één, de overige kaarten vormen een Stok. Draai de eerste kaart hiervan om en leg hem open neer om de Aflegstapel te beginnen.
+                        Determine the first Dealer. The Dealer swaps each hand with the direction of play (Clockwise).<br/>
+                        Every player gets 13 cards. Deal the cards one by one, the other cards form a Deck. Turn the first card over and place it face up to start the Discard pile.
                     </p>
-                    <h2>Spel</h2>
+                    <h2>The Game</h2>
                     <p>
-                        Voorhand is als eerste aan de beurt. Je beurt bestaat minimaal uit twee verplichte acties;<br/>
-                        1. Een kaart trekken om je beurt te beginnen, zij het de bovenste kaart van de gedekte Stok of de bovenste kaart van de open Aflegstapel.<br/>
-                        2. Een kaart op de Aflegstapel leggen, deze handeling eindigt je beurt. Indien je in het begin van je beurt de bovenste kaart van de Aflegstapel hebt getrokken, mag je niet diezelfde kaart op de Aflegstapel gooien in deze beurt.
+                        The player next to the Dealer is the first to start. Your turn consists of at least two mandatory actions:<br/>
+                        1. Draw a card to start your turn, be it the top card of the face-down deck or the top card of the face-up Discard Pile. <br/>
+                        2. Place a card on the discard pile, this action ends your turn.
                     </p>
                     <p>
                         Tussen de twee handelingen in mag je uitleggen of kaarten aanleggen als je dat kunt en wilt. Zoals gebruikelijk bij spellen van de rummy-groep is het de bedoeling dat je zoveel mogelijk van je handkaarten kwijtraakt, door ze uit te leggen, aan te leggen en af te leggen.
