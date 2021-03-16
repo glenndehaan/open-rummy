@@ -40,7 +40,7 @@ class Intro extends Component {
                     <p>
                         <strong>Total Players:</strong> 2 - 8<br/>
                         <strong>Cards:</strong> 2x standard deck of 52 playing cards (104 cards total)<br/>
-                        <strong>Age:</strong> 18+<br/>
+                        <strong>Age:</strong> 12+<br/>
                         <strong>Playing Direction:</strong> Clockwise
                     </p>
                     <p>
@@ -49,32 +49,40 @@ class Intro extends Component {
                     </p>
                     <h2>Dealing</h2>
                     <p>
-                        Determine the first Dealer. The Dealer swaps each hand with the direction of play (Clockwise).<br/>
-                        Every player gets 13 cards. Deal the cards one by one, the other cards form a Deck. Turn the first card over and place it face up to start the Discard pile.
+                        Determine the first dealer. This could be done to shuffle the cards, give each player a closed card and turn it over. The player with the highest card is the dealer. The dealer swaps every round with the direction of play (Clockwise).<br/>
+                        Every player gets 13 cards. Deal the cards one by one, the remaining cards form a deck where players can buy new cards from. Turn the first card over from the deck and place it face up to start the discard pile.
                     </p>
                     <h2>The Game</h2>
                     <p>
-                        The player next to the Dealer is the first to start. Your turn consists of at least two mandatory actions:<br/>
-                        1. Draw a card to start your turn, be it the top card of the face-down deck or the top card of the face-up Discard Pile. <br/>
+                        The player next to the Dealer is the first to start (clockwise). Your turn consists of at least two mandatory actions:<br/>
+                        1. Draw a card to start your turn, be it the top card of the face-down deck or the top card of the face-up discard pile.<br/>
                         2. Place a card on the discard pile, this action ends your turn.
                     </p>
                     <p>
-                        Tussen de twee handelingen in mag je uitleggen of kaarten aanleggen als je dat kunt en wilt. Zoals gebruikelijk bij spellen van de rummy-groep is het de bedoeling dat je zoveel mogelijk van je handkaarten kwijtraakt, door ze uit te leggen, aan te leggen en af te leggen.
+                        Between these two mandatory actions you can make points by placing sets on the table or add cards to an existing set. To win the round, you have to lose all the cards in your hand by placing sets, adding cards to an existing set or lose cards by placing a card to the discard pile, this will immediately end your turn.
                     </p>
                     <p>
-                        Uitleggen doe je door een bepaalde combinatie van minimaal 3 kaarten uit je hand open op tafel te leggen. Dit mogen sequenties of sets zijn. Sequenties zijn kaarten die elkaar opvolgen in dezelfde bloem. Sets zijn kaarten van dezelfde rang. Je mag maar één set of sequentie uitleggen per beurt.
+                        You can place a set on the table if they are at least:<br/>
+                        • 3 cards of the same sequence (2,3,4)<br/>
+                        • Or; with the same value (3 kings).
                     </p>
                     <p>
-                        Je mag ook kaarten aanleggen aan reeds uitgelegde kaarten van jezelf of anderen, zolang ze aansluiten op de combinatie die er ligt. Je mag géén uitgelegde combinaties hervormen. Aanleggen van kaarten mag je onbeperkt doen.
+                        You may also add cards to an existing set, from who the set were does not matter. Placings sets or adding cards to an existing set can be done until you do not have any more sets or cannot add any more cards to existing sets. You than have to end your turn by placing a card to the discard pile.
                     </p>
                     <p>
-                        Wanneer de Stok op is en een speler wil niet de bovenste kaart van de Aflegstapel trekken, dan wordt de Aflegstapel omgedraaid zonder te schudden om een nieuwe Stok te vormen.
+                        Important to know is that a sequence of a set is always the same color. For instance, if you have a set of 7 spades, 8 spades and 9 spades you can place that set on the table. If the 8 of spades is 8 of harts, you cannot place that set on the table. The same applies for adding a card to the sequence.
                     </p>
                     <p>
-                        Wanneer een speler zijn laatste kaart op de Aflegstapel legt, heeft hij de hand gewonnen (hij gaat ‘uit’). De winnaar scoort het aantal punten op de kaarten wat de tegenspelers nog in hun handen hebben. B-V-H zijn ieder 10 punten waard, A is 1 punt waard en numerieke kaarten hun getalwaarde. Wanneer iemand in één keer uitgaat (dus met evenveel kaarten als dat hij bedeeld kreeg), dan scoort hij een rummy; de punten die hij wint deze hand worden verdubbeld.
+                        When you are placing a set with the same value, for instance 3 aces. They have to be 3 different colors. A set with the same value can only exists of a maximum of 4 different colors (clubs, aces, diamonds and harts). When a set with the same value contains the 4 different colors it may be closed and put away from the game. They do not longer play a role in this round.
                     </p>
                     <p>
-                        Cumulatieve score wordt bijgehouden van hand tot hand totdat de afgesproken score bereikt is of het aantal handen is gespeeld.
+                        By placing sets on table or adding cards to an existing set the player earns points. The following points can be earnt:<br/>
+                        The cards 2 till 9 are worth 5 points each.<br/>
+                        The cards 10 till king are worth 10 points each.<br/>
+                        The card ace is worth 15 points each.
+                    </p>
+                    <p>
+                        When a player places its last card at the discard pile it wins. The other players has to count their remaining hand as described above, these points will be subtracted form their collected points. When a player reached the 300 points it will win after the last played round. A player has not won when it is in a round where it achieved the 300 points margin and there has not been a player that put its last card to the discard pile. Only when a round is done and after subtracting the remaining point a player can win when still having those 300 points.
                     </p>
                     <h2>Variabele regels</h2>
                     <p>
