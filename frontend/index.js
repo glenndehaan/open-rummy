@@ -38,6 +38,8 @@ if ('wakeLock' in navigator) {
             wakeLock();
         }
     });
+} else {
+    console.warn('Wake-Lock Not Available!');
 }
 
 /**
