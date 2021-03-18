@@ -1,7 +1,9 @@
 import {h, Component, Fragment} from 'preact';
 import {connect} from 'unistore/preact';
+import mitt from 'mitt';
 
 import PlayersOverview from '../components/Players';
+import Notification from '../components/Notification';
 
 import Intro from './Intro';
 import Players from './Players';
@@ -22,6 +24,15 @@ const pages = {
 
 class Pages extends Component {
     /**
+     * Constructor
+     */
+    constructor() {
+        super();
+
+        window.events = mitt();
+    }
+
+    /**
      * Preact render function
      *
      * @returns {*}
@@ -33,6 +44,7 @@ class Pages extends Component {
         if(Cmp) {
             return (
                 <>
+                    <Notification/>
                     <PlayersOverview/>
                     <main>
                         <Cmp/>

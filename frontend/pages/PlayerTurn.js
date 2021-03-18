@@ -22,6 +22,11 @@ class PlayerTurn extends Component {
      */
     componentDidMount() {
         document.title = 'Game | Open Rummy';
+
+        window.events.emit('notification', {
+            title: `Round ${this.props.game.wins.length + 1} starts`,
+            content: `Make sure the entire deck is shuffled and every player has 13 cards.<br/><br/>It&apos;s <strong>${this.props.players[this.props.game.turn]}&apos;s</strong> Turn`
+        });
     }
 
     /**
