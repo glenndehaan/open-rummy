@@ -3,10 +3,22 @@ import {connect} from 'unistore/preact';
 import {actions} from '../modules/store';
 
 import ButtonBar from '../components/ButtonBar';
+import Dialog from '../components/Dialog';
 
 import style from './GameOver.module.scss';
 
 class GameOver extends Component {
+    /**
+     * Constructor
+     */
+    constructor() {
+        super();
+
+        this.state = {
+            restartDialog: false
+        };
+    }
+
     /**
      * Runs then component mounts
      */
@@ -18,8 +30,27 @@ class GameOver extends Component {
      * Handles the restart function
      */
     restart() {
+        this.closeRestartDialog();
         this.props.setPlayers([]);
         this.props.updateRouter('players');
+    }
+
+    /**
+     * Open the restart dialog
+     */
+    openRestartDialog() {
+        this.setState({
+            restartDialog: true
+        });
+    }
+
+    /**
+     * Close the restart dialog
+     */
+    closeRestartDialog() {
+        this.setState({
+            restartDialog: false
+        });
     }
 
     /**
@@ -29,11 +60,19 @@ class GameOver extends Component {
      */
     render() {
         const {players, game} = this.props;
+        const {restartDialog} = this.state;
+
         const keys = Object.keys(game.points);
         const sort = keys.sort((a, b) => { return game.points[b] - game.points[a] });
 
         return (
             <>
+                {restartDialog &&
+                    <Dialog title="Are you sure?" next={() => this.restart()} cancel={() => this.closeRestartDialog()}>
+                        Are you sure you want start a new game? This action will reset all data!<br/><br/>
+                        <strong>This action cannot be undone!</strong>
+                    </Dialog>
+                }
                 <section>
                     <h1 className={style.header}>Game Over</h1>
                     <h2>{players[game.win]} has won the game!!</h2>
@@ -78,7 +117,7 @@ class GameOver extends Component {
                         </tbody>
                     </table>
                 </section>
-                <ButtonBar buttons={[{text: "New game", color: "success", click: () => this.restart()}]}/>
+                <ButtonBar buttons={[{text: "New game", color: "success", click: () => this.openRestartDialog()}]}/>
             </>
         );
     }
