@@ -43,6 +43,30 @@ p {
   margin-bottom: 20px;
 }
 
+table,
+th,
+td {
+  border: 1px solid var(--color-soft-border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem 16px;
+}
+
+thead tr {
+  background: var(--color-soft-border);
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: var(--color-soft-background);
+}
+
 .no-js-container {
   position: relative;
   width: 100%;
