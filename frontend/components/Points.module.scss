@@ -36,6 +36,10 @@
   margin: 0;
 }
 
+.numberInput[type=number] {
+  -moz-appearance: textfield;
+}
+
 .keypad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
