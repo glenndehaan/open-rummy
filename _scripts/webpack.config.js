@@ -50,7 +50,7 @@ const config = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            require.resolve('@babel/preset-env'),
+                            [require.resolve('@babel/preset-env'), {"targets": {"node": "10"}}],
                             require.resolve('@babel/preset-react')
                         ],
                         plugins: [
