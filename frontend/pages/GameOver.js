@@ -5,6 +5,8 @@ import {actions} from '../modules/store';
 import ButtonBar from '../components/ButtonBar';
 import Dialog from '../components/Dialog';
 
+import money from '../utils/money';
+
 import style from './GameOver.module.scss';
 
 class GameOver extends Component {
@@ -65,6 +67,9 @@ class GameOver extends Component {
         const keys = Object.keys(game.points);
         const sort = keys.sort((a, b) => { return game.points[b] - game.points[a] });
 
+        const winPayout = money.calculateWin(this.props.players, this.props.game);
+        const roundPayout = money.calculateRounds(this.props.players, this.props.game);
+
         return (
             <>
                 {restartDialog &&
@@ -73,7 +78,7 @@ class GameOver extends Component {
                         <strong>This action cannot be undone!</strong>
                     </Dialog>
                 }
-                <section>
+                <section className={style.container}>
                     <h1 className={style.header}>Game Over</h1>
                     <h2>{players[game.win]} has won the game!!</h2>
                     <h3 className={style.specialHeading}>Results</h3>
@@ -97,13 +102,15 @@ class GameOver extends Component {
                             ))}
                         </tbody>
                     </table>
-                    <h3 className={style.specialHeading}>Payout (Coming Soon)</h3>
+                    <h3 className={style.specialHeading}>Payout</h3>
                     <table className={style.results}>
                         <thead>
                             <tr>
                                 <th align="left">#</th>
                                 <th align="left">Player</th>
-                                <th align="left">Payout</th>
+                                <th align="left">Points</th>
+                                <th align="left">Wins</th>
+                                <th align="left">Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -111,7 +118,9 @@ class GameOver extends Component {
                                 <tr key={key}>
                                     <td align="left">{key + 1}</td>
                                     <td align="left">{player}</td>
-                                    <td align="right">&euro; 0,-</td>
+                                    <td align="right">&euro; {winPayout[player].toFixed(2)}</td>
+                                    <td align="right">&euro; {roundPayout[player].toFixed(2)}</td>
+                                    <td align="right">&euro; {(winPayout[player] + roundPayout[player]).toFixed(2)}</td>
                                 </tr>
                             ))}
                         </tbody>
