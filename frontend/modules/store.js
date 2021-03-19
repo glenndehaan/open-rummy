@@ -1,6 +1,8 @@
 import createUnistore from 'unistore';
 import devtools from 'unistore/devtools';
 
+import storage from './storage';
+
 /**
  * Exports the store with the default state
  *
@@ -33,11 +35,15 @@ const createStore = () => {
 const actions = () => {
     return {
         updateRouter(state, payload) {
+            storage.set('route', payload);
+
             return {
                 route: payload
             };
         },
         setPlayers(state, payload) {
+            storage.set('players', payload);
+
             return {
                 players: payload
             };
@@ -49,6 +55,16 @@ const actions = () => {
                 const player = state.players[item];
                 points[player] = 0;
             }
+
+            storage.set('game', {
+                started: true,
+                finished: false,
+                points,
+                wins: [],
+                win: -1,
+                rotation: 1,
+                turn: 0
+            });
 
             return {
                 game: {
@@ -71,6 +87,8 @@ const actions = () => {
 
             newState.game.points[state.players[state.game.turn]] += parseInt(payload);
 
+            storage.set('game', newState.game);
+
             return newState;
         },
         removePoints(state, payload) {
@@ -83,9 +101,17 @@ const actions = () => {
 
             newState.game.points[state.players[state.loss[0]]] -= parseInt(payload);
 
+            storage.set('game', newState.game);
+            storage.set('loss', newState.loss);
+
             return newState;
         },
         nextPlayer(state) {
+            storage.set('game', {
+                ...state.game,
+                turn: (state.game.turn + 1) !== state.players.length ? (state.game.turn + 1) : 0
+            });
+
             return {
                 game: {
                     ...state.game,
@@ -105,11 +131,21 @@ const actions = () => {
 
             newState.game.wins.push(state.game.turn);
 
+            storage.set('game', newState.game);
+            storage.set('loss', newState.loss);
+
             return newState;
         },
         gameOver(state) {
             const keys = Object.keys(state.game.points);
             const sort = keys.sort((a, b) => { return state.game.points[b] - state.game.points[a] });
+
+            storage.set('game', {
+                ...state.game,
+                started: false,
+                finished: true,
+                win: state.players.indexOf(sort[0])
+            });
 
             return {
                 game: {
@@ -119,6 +155,27 @@ const actions = () => {
                     win: state.players.indexOf(sort[0])
                 }
             };
+        },
+        restoreGame() {
+            const newState = {};
+
+            if(storage.get('route') !== null) {
+                newState.route = storage.get('route');
+            }
+
+            if(storage.get('players') !== null) {
+                newState.players = storage.get('players');
+            }
+
+            if(storage.get('game') !== null) {
+                newState.game = storage.get('game');
+            }
+
+            if(storage.get('loss') !== null) {
+                newState.loss = storage.get('loss');
+            }
+
+            return newState;
         }
     };
 };
