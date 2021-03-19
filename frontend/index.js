@@ -48,6 +48,11 @@ if ('wakeLock' in navigator) {
 }
 
 /**
+ * Log intro
+ */
+console.log(`-----\n|o o|\n| o | Open Rummy\n|o o|\n-----\n\nVersion: ${window.appVer}\nCreated by: Glenn de Haan (https://github.com/glenndehaan)`);
+
+/**
  * Initialize the app
  */
 document.querySelector('#app').innerHTML = "";
