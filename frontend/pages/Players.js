@@ -5,6 +5,8 @@ import {actions} from '../modules/store';
 import ButtonBar from '../components/ButtonBar';
 import Icon from '../components/Icons';
 
+import array from '../utils/array';
+
 import style from './Players.module.scss';
 
 class Players extends Component {
@@ -15,7 +17,8 @@ class Players extends Component {
         super();
 
         this.state = {
-            error: false
+            errorMinimum: false,
+            errorUnique: false
         };
 
         this.elements = {
@@ -49,7 +52,15 @@ class Players extends Component {
 
         if(players.length < 2) {
             this.setState({
-                error: true
+                errorMinimum: true
+            });
+
+            return;
+        }
+
+        if(array.checkForDuplicates(players)) {
+            this.setState({
+                errorUnique: true
             });
 
             return;
@@ -66,13 +77,16 @@ class Players extends Component {
      * @returns {*}
      */
     render() {
-        const {error} = this.state;
+        const {errorMinimum, errorUnique} = this.state;
 
         return (
             <>
                 <section>
-                    {error &&
+                    {errorMinimum &&
                         <div className={style.error}>At least two players are required!!</div>
+                    }
+                    {errorUnique &&
+                        <div className={style.error}>All player names should be unique!!</div>
                     }
                     <h1>Players</h1>
                     <span>Please provide all player names below. Make sure to set the order the same as your table setting (Start with the first player after the dealer). Note: Leave player names empty if you don&apos;t need them.</span>
