@@ -2,18 +2,30 @@
 
 A companion website for playing the Open Rummy card game
 
+## Features
+- Game instructions
+- Automated point calculations
+- Round win status
+- Current player turn
+- Payout calculations
+- Storage fallback for incomplete games
+
 ## Structure
 - ES6 Javascript
 - Preact
-- anime.js
+- Unistore
+- Mitt
 - Webpack
+
+## Live Site
+https://open-rummy.com
 
 ## Development Usage
 - Install NodeJS 14.0 or higher.
 - Run `npm ci` in the root folder
 - Run `npm start` in the root folder
 
-Then open up your favorite browser and go to http://localhost:3001/
+Then open up your favorite browser and go to http://localhost:3467/
 
 ## Build Usage
 - Install NodeJS 14.0 or higher.
