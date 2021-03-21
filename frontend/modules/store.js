@@ -13,6 +13,10 @@ const createStore = () => {
         players: [], // Defines the player names
         loss: [], // Defines the player index that need to collect a loss
         game: {
+            time: {
+                start: null, // Defines when a game has started
+                end: null // Defines when a game has ended
+            },
             started: false, // Defines if a game is started
             finished: false, // Defines if a game is finished
             points: {}, // Defines the player points
@@ -57,6 +61,10 @@ const actions = () => {
             }
 
             storage.set('game', {
+                time: {
+                    start: new Date().getTime(),
+                    end: null
+                },
                 started: true,
                 finished: false,
                 points,
@@ -68,6 +76,10 @@ const actions = () => {
 
             return {
                 game: {
+                    time: {
+                        start: new Date().getTime(),
+                        end: null
+                    },
                     started: true,
                     finished: false,
                     points,
@@ -142,6 +154,10 @@ const actions = () => {
 
             storage.set('game', {
                 ...state.game,
+                time: {
+                    ...state.game.time,
+                    end: new Date().getTime()
+                },
                 started: false,
                 finished: true,
                 win: state.players.indexOf(sort[0])
@@ -150,6 +166,10 @@ const actions = () => {
             return {
                 game: {
                     ...state.game,
+                    time: {
+                        ...state.game.time,
+                        end: new Date().getTime()
+                    },
                     started: false,
                     finished: true,
                     win: state.players.indexOf(sort[0])

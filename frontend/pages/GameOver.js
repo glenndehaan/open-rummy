@@ -70,6 +70,15 @@ class GameOver extends Component {
         const winPayout = money.calculateWin(this.props.players, this.props.game);
         const roundPayout = money.calculateRounds(this.props.players, this.props.game);
 
+        const dateOptions = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            timeZoneName: 'short',
+            hour12: false
+        };
+
         return (
             <>
                 {restartDialog &&
@@ -81,6 +90,7 @@ class GameOver extends Component {
                 <section className={style.container}>
                     <h1 className={style.header}>Game Over</h1>
                     <h2>{players[game.win]} has won the game!!</h2>
+                    <span>The game started at: {new Date(game.time.start).toLocaleTimeString('en-US', dateOptions)} - The game ended at: {new Date(game.time.end).toLocaleTimeString('en-US', dateOptions)}</span>
                     <h3 className={style.specialHeading}>Results</h3>
                     <table className={style.results}>
                         <thead>
