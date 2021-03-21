@@ -13,9 +13,22 @@
   background-color: var(--color-soft-background);
 }
 
+.smallContainer {
+  grid-template-columns: calc(100% - 100px) 100px;
+}
+
+.small {
+  width: 100px;
+}
+
 .color-success {
   color: var(--color-success);
   background-color: var(--color-success-background);
+}
+
+.color-warning {
+  color: var(--color-warning);
+  background-color: var(--color-warning-background);
 }
 
 .color-error {

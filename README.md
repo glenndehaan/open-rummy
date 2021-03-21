@@ -32,6 +32,13 @@ Then open up your favorite browser and go to http://localhost:3467/
 - Run `npm ci` in the root folder
 - Run `npm run build` in the root folder
 
+## Improvements
+- Undo button in button bar
+- Show person that need to deal cards in next round dialog
+- History of previous games
+- Share game via qr code
+- Import/Export games
+
 ## License
 
 MIT

@@ -12,6 +12,7 @@ import Players from './Players';
 import PlayerTurn from './PlayerTurn';
 import PlayerLoss from './PlayerLoss';
 import GameOver from './GameOver';
+import Archive from './Archive';
 
 import storage from '../modules/storage';
 
@@ -23,7 +24,8 @@ const pages = {
     players: Players,
     playerTurn: PlayerTurn,
     playerLoss: PlayerLoss,
-    gameOver: GameOver
+    gameOver: GameOver,
+    archive: Archive
 };
 
 class Pages extends Component {

@@ -1,4 +1,5 @@
 import {h, Component} from 'preact';
+import clsx from 'clsx';
 
 import style from './ButtonBar.module.scss';
 
@@ -9,12 +10,12 @@ export default class ButtonBar extends Component {
      * @returns {*}
      */
     render() {
-        const {buttons} = this.props;
+        const {buttons, small = false} = this.props;
 
         return (
-            <footer className={style.container} style={{'--buttons': buttons.length}}>
+            <footer className={clsx(style.container, small && style.smallContainer)} style={{'--buttons': buttons.length}}>
                 {buttons.map((button, key) => (
-                    <button key={key} className={style[`color-${button.color}`]} onClick={button.click}>{button.text}</button>
+                    <button key={key} className={clsx(style[`color-${button.color}`], button.small && style.small)} onClick={button.click}>{button.text}</button>
                 ))}
             </footer>
         );

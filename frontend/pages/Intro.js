@@ -22,6 +22,13 @@ class Intro extends Component {
     }
 
     /**
+     * Update the router to the archive
+     */
+    archive() {
+        this.props.updateRouter('archive');
+    }
+
+    /**
      * Preact render function
      *
      * @returns {*}
@@ -85,7 +92,7 @@ class Intro extends Component {
                         When a player places its last card at the discard pile it wins. The other players have to count their remaining hand as described above, these points will be subtracted from their collected points. When a player has reached 300 points it will win after the last played round. A player has not won when it is in a round where it achieved the 300 points margin and there has not been a player that put its last card to the discard pile. Only when a round is done and after subtracting the remaining point a player can win when still having those 300 points.
                     </p>
                 </section>
-                <ButtonBar buttons={[{text: "Let's start!", color: 'success', click: () => this.nextStep()}]}/>
+                <ButtonBar small={true} buttons={[{text: "Let's start!", color: 'success', click: () => this.nextStep()}, {text: "Archive", color: 'warning', small: true, click: () => this.archive()}]}/>
             </>
         );
     }
