@@ -30,7 +30,7 @@ class PlayerTurn extends Component {
 
         window.events.emit('notification', {
             title: `Round ${this.props.game.wins.length + 1} starts`,
-            content: `Make sure the entire deck is shuffled and every player has 13 cards.<br/><br/>It&apos;s <strong>${this.props.players[this.props.game.turn]}&apos;s</strong> Turn`
+            content: `Make sure the entire deck is shuffled and every player has 13 cards.<br/><br/><strong>${this.props.players[(this.props.game.turn - 1) === -1 ? this.props.players.length - 1 : this.props.game.turn - 1]}</strong> is the dealer this round<br/>It&apos;s <strong>${this.props.players[this.props.game.turn]}&apos;s</strong> Turn`
         });
     }
 
