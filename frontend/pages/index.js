@@ -71,6 +71,11 @@ class Pages extends Component {
      * Closes the restore game dialog
      */
     closeRestoreGame() {
+        storage.remove('route');
+        storage.remove('game');
+        storage.remove('players');
+        storage.remove('loss');
+
         this.setState({
             restoreGame: false
         });
