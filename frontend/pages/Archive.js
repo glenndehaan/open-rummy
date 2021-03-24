@@ -4,9 +4,22 @@ import {actions} from '../modules/store';
 
 import ButtonBar from '../components/ButtonBar';
 
+import storage from '../modules/storage';
+
 import style from './Archive.module.scss';
 
-class GameOver extends Component {
+class Archive extends Component {
+    /**
+     * Constructor
+     */
+    constructor() {
+        super();
+
+        this.state = {
+            update: Math.random()
+        };
+    }
+
     /**
      * Runs then component mounts
      */
@@ -22,16 +35,70 @@ class GameOver extends Component {
     }
 
     /**
+     * Navigate to the game over page
+     *
+     * @param game
+     */
+    details(game) {
+        this.props.loadGame(game);
+        this.props.updateRouter('gameOver');
+    }
+
+    /**
+     * Remove game archive
+     */
+    cleanup() {
+        storage.set('archive', []);
+        this.setState({
+            update: Math.random()
+        });
+    }
+
+    /**
      * Preact render function
      *
      * @returns {*}
      */
     render() {
+        const archive = storage.get('archive');
+
+        const dateOptions = {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour12: false
+        };
+
         return (
             <>
                 <section className={style.container}>
                     <h1 className={style.header}>Archive</h1>
-                    <h2>Coming soon!</h2>
+                    {archive.length > 0 &&
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th align="left">Date/Time</th>
+                                    <th align="left">Winner</th>
+                                    <th align="left"/>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {archive.reverse().map((game, key) => (
+                                    <tr key={key}>
+                                        <td align="left">{new Date(game.game.time.end).toLocaleTimeString('en-US', dateOptions)}</td>
+                                        <td align="left">{game.players[game.game.win]}</td>
+                                        <td align="center">
+                                            <button className={style.openButton} onClick={() => this.details(game)}>
+                                                Details
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    }
+                    {archive.length > 0 && <button onClick={() => this.cleanup()} className={style.cleanupButton}>Remove All Archive Games</button>}
+                    {archive.length < 1 && <strong>The archive seems to be empty! Play a game to fill it up</strong>}
                 </section>
                 <ButtonBar buttons={[{text: "Back", color: "success", click: () => this.back()}]}/>
             </>
@@ -42,4 +109,4 @@ class GameOver extends Component {
 /**
  * Connect the store to the component
  */
-export default connect('route,players,game', actions)(GameOver);
+export default connect('route,players,game', actions)(Archive);

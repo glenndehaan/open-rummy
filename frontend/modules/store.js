@@ -17,6 +17,7 @@ const createStore = () => {
                 start: null, // Defines when a game has started
                 end: null // Defines when a game has ended
             },
+            loaded: false, // Defines if a game is loaded from memory
             started: false, // Defines if a game is started
             finished: false, // Defines if a game is finished
             points: {}, // Defines the player points
@@ -39,6 +40,7 @@ const createStore = () => {
 const actions = () => {
     return {
         updateRouter(state, payload) {
+            window.scrollTo(0, 0);
             storage.set('route', payload);
 
             return {
@@ -65,6 +67,7 @@ const actions = () => {
                     start: new Date().getTime(),
                     end: null
                 },
+                loaded: false,
                 started: true,
                 finished: false,
                 points,
@@ -80,6 +83,7 @@ const actions = () => {
                         start: new Date().getTime(),
                         end: null
                     },
+                    loaded: false,
                     started: true,
                     finished: false,
                     points,
@@ -163,6 +167,23 @@ const actions = () => {
                 win: state.players.indexOf(sort[0])
             });
 
+            const archive = storage.get('archive');
+            archive.push({
+                players: state.players,
+                game: {
+                    ...state.game,
+                    time: {
+                        ...state.game.time,
+                        end: new Date().getTime()
+                    },
+                    started: false,
+                    finished: true,
+                    win: state.players.indexOf(sort[0])
+                }
+            });
+
+            storage.set('archive', archive);
+
             return {
                 game: {
                     ...state.game,
@@ -196,6 +217,15 @@ const actions = () => {
             }
 
             return newState;
+        },
+        loadGame(state, payload) {
+            return {
+                players: payload.players,
+                game: {
+                    ...payload.game,
+                    loaded: true
+                }
+            };
         }
     };
 };

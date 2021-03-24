@@ -37,6 +37,10 @@ class Pages extends Component {
 
         window.events = mitt();
 
+        if(storage.get('archive') === null) {
+            storage.set('archive', []);
+        }
+
         this.state = {
             restoreGame: false
         };

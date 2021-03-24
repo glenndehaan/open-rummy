@@ -5,3 +5,20 @@
 .header {
   margin-bottom: 20px;
 }
+
+.openButton {
+  padding: 10px;
+
+  color: var(--color-warning);
+  background-color: var(--color-warning-background);
+}
+
+.cleanupButton {
+  margin-top: 25px;
+
+  height: 40px;
+  width: 100%;
+
+  color: var(--color-error);
+  background-color: var(--color-error-background);
+}

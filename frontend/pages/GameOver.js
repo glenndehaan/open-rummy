@@ -56,6 +56,14 @@ class GameOver extends Component {
     }
 
     /**
+     * Navigates back to the archive
+     */
+    backToArchive() {
+        this.props.setPlayers([]);
+        this.props.updateRouter('archive');
+    }
+
+    /**
      * Preact render function
      *
      * @returns {*}
@@ -90,7 +98,9 @@ class GameOver extends Component {
                 <section className={style.container}>
                     <h1 className={style.header}>Game Over</h1>
                     <h2>{players[game.win]} has won the game!!</h2>
-                    <span>The game started at: {new Date(game.time.start).toLocaleTimeString('en-US', dateOptions)} - The game ended at: {new Date(game.time.end).toLocaleTimeString('en-US', dateOptions)}</span>
+                    <br/>
+                    <span>The game started at: {new Date(game.time.start).toLocaleTimeString('en-US', dateOptions)}</span><br/>
+                    <span>The game ended at: {new Date(game.time.end).toLocaleTimeString('en-US', dateOptions)}</span>
                     <h3 className={style.specialHeading}>Results</h3>
                     <table className={style.results}>
                         <thead>
@@ -136,7 +146,8 @@ class GameOver extends Component {
                         </tbody>
                     </table>
                 </section>
-                <ButtonBar buttons={[{text: "New game", color: "success", click: () => this.openRestartDialog()}]}/>
+                {!game.loaded && <ButtonBar buttons={[{text: "New game", color: "success", click: () => this.openRestartDialog()}]}/>}
+                {game.loaded && <ButtonBar buttons={[{text: "Back", color: "success", click: () => this.backToArchive()}]}/>}
             </>
         );
     }
