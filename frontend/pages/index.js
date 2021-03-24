@@ -73,12 +73,16 @@ class Pages extends Component {
 
     /**
      * Closes the restore game dialog
+     *
+     * @param clear
      */
-    closeRestoreGame() {
-        storage.remove('route');
-        storage.remove('game');
-        storage.remove('players');
-        storage.remove('loss');
+    closeRestoreGame(clear = false) {
+        if(clear) {
+            storage.remove('route');
+            storage.remove('game');
+            storage.remove('players');
+            storage.remove('loss');
+        }
 
         this.setState({
             restoreGame: false
@@ -100,7 +104,7 @@ class Pages extends Component {
             return (
                 <>
                     {restoreGame &&
-                        <Dialog title="Restore unfinished game?" next={() => this.restoreGame()} cancel={() => this.closeRestoreGame()}>
+                        <Dialog title="Restore unfinished game?" next={() => this.restoreGame()} cancel={() => this.closeRestoreGame(true)}>
                             A game has been found in storage that was unfinished.<br/>
                             Do you want to restore this game?
                         </Dialog>
