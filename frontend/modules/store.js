@@ -1,5 +1,4 @@
 import createUnistore from 'unistore';
-import devtools from 'unistore/devtools';
 
 import storage from './storage';
 
@@ -29,7 +28,7 @@ const createStore = () => {
         route: "intro" // Defines the current route
     };
 
-    return process.env.NODE_ENV === 'production' ? createUnistore(initialState) : devtools(createUnistore(initialState));
+    return process.env.NODE_ENV === 'production' ? createUnistore(initialState) : require("unistore/devtools")(createUnistore(initialState));
 };
 
 /**
