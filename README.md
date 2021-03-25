@@ -33,7 +33,7 @@ Then open up your favorite browser and go to http://localhost:3467/
 - Run `npm run build` in the root folder
 
 ## Improvements
-- Undo button in button bar
+- *Undo button in button bar*
 - Share game via qr code
 - Import/Export games
 
