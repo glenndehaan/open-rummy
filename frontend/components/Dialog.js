@@ -11,7 +11,7 @@ export default class Dialog extends Component {
      * @returns {*}
      */
     render() {
-        const {children, title, next, cancel} = this.props;
+        const {children, title, next, cancel, update = false} = this.props;
 
         return (
             <div className={style.container}>
@@ -20,7 +20,7 @@ export default class Dialog extends Component {
                         <h1>{title}</h1>
                         {children}
                     </div>
-                    {typeof next === "function" && typeof cancel !== "function" && <ButtonBar buttons={[{text: "Next", color: "success", click: () => next()}]}/>}
+                    {typeof next === "function" && typeof cancel !== "function" && <ButtonBar buttons={[{text: update ? "Start Update" : "Next", color: "success", click: () => next()}]}/>}
                     {typeof next === "function" && typeof cancel === "function" && <ButtonBar buttons={[{text: "Continue", color: "success", click: () => next()}, {text: "Cancel", color: "error", click: () => cancel()}]}/>}
                 </div>
             </div>

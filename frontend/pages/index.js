@@ -42,7 +42,8 @@ class Pages extends Component {
         }
 
         this.state = {
-            restoreGame: false
+            restoreGame: false,
+            updateAvailableDialog: false
         };
     }
 
@@ -50,6 +51,19 @@ class Pages extends Component {
      * Runs then component mounts
      */
     componentDidMount() {
+        if ('serviceWorker' in navigator) {
+            if(storage.get('firstVisit') === null) {
+                storage.set('firstVisit' , true);
+                return;
+            }
+
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                this.setState({
+                    updateAvailableDialog: true
+                });
+            });
+        }
+
         const game = storage.get('game');
 
         if(this.props.route === 'intro') {
@@ -90,19 +104,32 @@ class Pages extends Component {
     }
 
     /**
+     * Updates the app
+     */
+    update() {
+        window.location.reload();
+    }
+
+    /**
      * Preact render function
      *
      * @returns {*}
      */
     render() {
         const {route} = this.props;
-        const {restoreGame} = this.state;
+        const {restoreGame, updateAvailableDialog} = this.state;
 
         const Cmp = pages[route];
 
         if(Cmp) {
             return (
                 <>
+                    {updateAvailableDialog &&
+                        <Dialog title="Update available!" next={() => this.update()} update={true}>
+                            Sorry for the interruption but we have an important update available...<br/>
+                            This only takes a second
+                        </Dialog>
+                    }
                     {restoreGame &&
                         <Dialog title="Restore unfinished game?" next={() => this.restoreGame()} cancel={() => this.closeRestoreGame(true)}>
                             A game has been found in storage that was unfinished.<br/>
