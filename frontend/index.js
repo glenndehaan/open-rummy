@@ -9,6 +9,7 @@ import {h, render} from 'preact';
 import {Provider} from 'unistore/preact';
 
 import store from './modules/store';
+import {validateServiceWorkerInstance} from './utils/sw';
 
 import Pages from './pages';
 
@@ -51,6 +52,11 @@ if ('wakeLock' in navigator) {
  * Log intro
  */
 console.log(`-----\n|o o|\n| o | Open Rummy\n|o o|\n-----\n\nVersion: ${window.appVer}\nCreated by: Glenn de Haan (https://github.com/glenndehaan)`);
+
+/**
+ * Validate service worker
+ */
+validateServiceWorkerInstance("/kill-switch.txt");
 
 /**
  * Initialize the app

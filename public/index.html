@@ -33,7 +33,7 @@
 
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="theme-color" content="#FFFFFF">
+        <meta name="theme-color" content="#06090f">
 
         <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.files.css %>" />
     </head>
@@ -49,6 +49,7 @@
         <script type="text/javascript">
             window.appVer = "<%= htmlWebpackPlugin.files.js %>".split('.')[1];
         </script>
+        <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js', { scope: '/' });</script>
         <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js %>"></script>
     </body>
 </html>

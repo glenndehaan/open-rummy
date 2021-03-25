@@ -3,6 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
+const { v4: uuidv4 } = require('uuid');
 
 const projectRoot = path.join(__dirname, '../');
 const buildDirectory = path.join(projectRoot, 'frontend');
@@ -73,6 +75,8 @@ const config = {
         // new BundleAnalyzerPlugin(),
         new CopyPlugin({
             patterns: [
+                {from: 'public/kill-switch.txt'},
+                {from: 'public/sw.js'},
                 {from: 'public/manifest.json'},
                 {from: 'public/sitemap.xml'},
                 {from: 'public/robots.txt'},
@@ -92,6 +96,19 @@ const config = {
 
 if(!prod) {
     config.devtool = 'cheap-module-source-map';
+} else {
+    config.plugins.push(
+        new ReplaceInFileWebpackPlugin([
+            {
+                dir: 'build',
+                test: /\.js$/,
+                rules: [{
+                    search: /__SW_VERSION__/g,
+                    replace: `open-rummy.com_${uuidv4()}`
+                }]
+            }
+        ])
+    );
 }
 
 module.exports = config;
