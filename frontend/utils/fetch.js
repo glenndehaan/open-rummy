@@ -12,7 +12,6 @@ export default (url, callback) => {
                 callback(xhr.responseText);
             } else {
                 console.error(xhr);
-                callback('');
             }
         }
     };
