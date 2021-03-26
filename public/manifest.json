@@ -18,10 +18,44 @@
       "sizes": "512x512"
     }
   ],
+  "screenshots" : [
+    {
+      "src": "./screenshots/screenshot1.png",
+      "sizes": "1079x1919",
+      "type": "image/png"
+    },
+    {
+      "src": "./screenshots/screenshot2.png",
+      "sizes": "1079x1919",
+      "type": "image/png"
+    },
+    {
+      "src": "./screenshots/screenshot3.png",
+      "sizes": "1079x1919",
+      "type": "image/png"
+    },
+    {
+      "src": "./screenshots/screenshot4.png",
+      "sizes": "1079x1919",
+      "type": "image/png"
+    },
+    {
+      "src": "./screenshots/screenshot5.png",
+      "sizes": "1079x1919",
+      "type": "image/png"
+    },
+    {
+      "src": "./screenshots/screenshot6.png",
+      "sizes": "1079x1919",
+      "type": "image/png"
+    }
+  ],
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "rotation": "portrait",
+  "orientation": "portrait",
+  "categories": ["entertainment", "games", "utilities"],
   "background_color": "#06090f",
   "theme_color": "#06090f"
 }
