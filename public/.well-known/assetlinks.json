@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "com.open_rummy.twa",
+                   "sha256_cert_fingerprints": ["FA:08:5A:AF:A3:D8:14:FF:5F:5A:4B:25:72:53:B2:36:1E:78:46:A8:06:8C:1F:0A:E1:2E:5B:C1:AA:70:01:E1"] }
+    }]
