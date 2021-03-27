@@ -9,6 +9,8 @@ A companion website for playing the Open Rummy card game
 - Current player turn
 - Payout calculations
 - Storage fallback for incomplete games
+- Service Worker for offline support
+- CSV Exports
 
 ## Structure
 - ES6 Javascript

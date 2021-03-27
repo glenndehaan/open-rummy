@@ -64,6 +64,45 @@ class GameOver extends Component {
     }
 
     /**
+     * Generate the CSV Ranking output
+     *
+     * @param players
+     * @param game
+     * @return {string}
+     */
+    csvRanking(players, game) {
+        let csv = "#;Player;Points;Wins\n";
+
+        const ranking = players.map((player, key) => {
+            return `${key + 1};${player};${game.points[player]};${game.wins.filter((e) => {return e === players.indexOf(player)}).length}`;
+        });
+
+        csv += ranking.join('\n');
+
+        return encodeURIComponent(csv);
+    }
+
+    /**
+     * Generate the CSV Payout output
+     *
+     * @param players
+     * @param win
+     * @param round
+     * @return {string}
+     */
+    csvPayout(players, win, round) {
+        let csv = "Player;Points;Wins;Total\n";
+
+        const payout = players.map((player) => {
+            return `${player};€ ${win[player].toFixed(2)};€ ${round[player].toFixed(2)};€ ${(win[player] + round[player]).toFixed(2)}`;
+        });
+
+        csv += payout.join('\n');
+
+        return encodeURIComponent(csv);
+    }
+
+    /**
      * Preact render function
      *
      * @returns {*}
@@ -122,11 +161,15 @@ class GameOver extends Component {
                             ))}
                         </tbody>
                     </table>
+                    <a className={style.link} href={`data:application/csv;charset=utf-8,${this.csvRanking(sort, game)}`} download={`ranking_${game.time.end}.csv`}>
+                        <button className={style.downloadButton}>
+                            Download CSV
+                        </button>
+                    </a>
                     <h3 className={style.specialHeading}>Payout</h3>
                     <table className={style.results}>
                         <thead>
                             <tr>
-                                <th align="left">#</th>
                                 <th align="left">Player</th>
                                 <th align="left">Points</th>
                                 <th align="left">Wins</th>
@@ -136,7 +179,6 @@ class GameOver extends Component {
                         <tbody>
                             {sort.map((player, key) => (
                                 <tr key={key}>
-                                    <td align="left">{key + 1}</td>
                                     <td align="left">{player}</td>
                                     <td align="right">&euro; {winPayout[player].toFixed(2)}</td>
                                     <td align="right">&euro; {roundPayout[player].toFixed(2)}</td>
@@ -145,6 +187,11 @@ class GameOver extends Component {
                             ))}
                         </tbody>
                     </table>
+                    <a className={style.link} href={`data:application/csv;charset=utf-8,${this.csvPayout(sort, winPayout, roundPayout)}`} download={`payout_${game.time.end}.csv`}>
+                        <button className={style.downloadButton}>
+                            Download CSV
+                        </button>
+                    </a>
                 </section>
                 {!game.loaded && <ButtonBar buttons={[{text: "New game", color: "success", click: () => this.openRestartDialog()}]}/>}
                 {game.loaded && <ButtonBar buttons={[{text: "Back", color: "success", click: () => this.backToArchive()}]}/>}
