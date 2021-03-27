@@ -72,6 +72,13 @@ class Players extends Component {
     }
 
     /**
+     * Update the router to the archive
+     */
+    archive() {
+        this.props.updateRouter('archive');
+    }
+
+    /**
      * Preact render function
      *
      * @returns {*}
@@ -125,7 +132,7 @@ class Players extends Component {
                         </span>
                     </div>
                 </section>
-                <ButtonBar buttons={[{text: "Save players", color: "success", click: () => this.nextStep()}]}/>
+                <ButtonBar small={true} buttons={[{text: "Save players", color: "success", click: () => this.nextStep()}, {text: "Archive", color: 'warning', small: true, click: () => this.archive()}]}/>
             </>
         );
     }
