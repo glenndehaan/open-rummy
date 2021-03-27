@@ -52,15 +52,13 @@ class Pages extends Component {
      */
     componentDidMount() {
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(registrations => {
-                if(registrations.length > 0) {
-                    navigator.serviceWorker.addEventListener('controllerchange', () => {
-                        this.setState({
-                            updateAvailableDialog: true
-                        });
+            if(navigator.serviceWorker.controller !== null) {
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    this.setState({
+                        updateAvailableDialog: true
                     });
-                }
-            });
+                });
+            }
         }
 
         const game = storage.get('game');
