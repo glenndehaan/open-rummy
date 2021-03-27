@@ -52,15 +52,14 @@ class Pages extends Component {
      */
     componentDidMount() {
         if ('serviceWorker' in navigator) {
-            if(storage.get('firstVisit') === null) {
-                storage.set('firstVisit' , true);
-                return;
-            }
-
-            navigator.serviceWorker.addEventListener('controllerchange', () => {
-                this.setState({
-                    updateAvailableDialog: true
-                });
+            navigator.serviceWorker.getRegistrations().then(registrations => {
+                if(registrations.length > 0) {
+                    navigator.serviceWorker.addEventListener('controllerchange', () => {
+                        this.setState({
+                            updateAvailableDialog: true
+                        });
+                    });
+                }
             });
         }
 
