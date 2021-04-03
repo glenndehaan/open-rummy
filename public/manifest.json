@@ -54,7 +54,6 @@
   "scope": "/",
   "display": "standalone",
   "rotation": "portrait",
-  "orientation": "portrait",
   "categories": ["entertainment", "games", "utilities"],
   "background_color": "#06090f",
   "theme_color": "#06090f"
