@@ -61,6 +61,7 @@ export default class Points extends Component {
             <div className={style.container}>
                 <span className={style.center}>
                     {negative && '-'}
+                    {!negative && '+'}
                     <input type="number" className={style.numberInput} value={value} disabled={true}/>
                     points
                 </span>

@@ -5,6 +5,8 @@ import {actions} from '../modules/store';
 import ButtonBar from '../components/ButtonBar';
 import Points from '../components/Points';
 
+import style from './PlayerLoss.module.scss';
+
 class PlayerLoss extends Component {
     /**
      * Constructor
@@ -13,6 +15,10 @@ class PlayerLoss extends Component {
         super();
 
         this.points = createRef();
+
+        this.state = {
+            error: false
+        };
     }
 
     /**
@@ -26,7 +32,19 @@ class PlayerLoss extends Component {
      * Handles the next player function
      */
     nextPlayer() {
-        this.props.removePoints(this.points.current.state.value !== '' ? this.points.current.state.value : 0);
+        if(this.points.current.state.value === '') {
+            this.setState({
+                error: true
+            });
+
+            return;
+        } else {
+            this.setState({
+                error: false
+            });
+        }
+
+        this.props.removePoints(this.points.current.state.value);
 
         if((this.props.loss.length - 1) === 0) {
             const gameOver = Object.keys(this.props.game.points).filter((e) => {
@@ -49,10 +67,14 @@ class PlayerLoss extends Component {
      */
     render() {
         const {players, loss} = this.props;
+        const {error} = this.state;
 
         return (
             <>
                 <section>
+                    {error &&
+                        <div className={style.error}>Please enter an amount below!!</div>
+                    }
                     <h1>{players[loss[0]]}&apos;s Loss</h1>
                     <span>Enter the total amount of points the player still has in his/her hand</span>
                     <Points negative={true} turn={loss[0]} ref={this.points}/>
