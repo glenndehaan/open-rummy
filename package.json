@@ -1,7 +1,7 @@
 {
   "name": "open-rummy",
   "version": "0.0.0",
-  "description": "A companion website for playing the Open Rummy card game ",
+  "description": "A companion website for playing the Open Rummy card game",
   "scripts": {
     "prestart": "rimraf ./build",
     "start": "webpack-dev-server --open --config ./_scripts/webpack.config.js --content-base ./public/dist",

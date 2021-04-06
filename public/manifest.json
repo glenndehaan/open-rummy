@@ -1,21 +1,43 @@
 {
   "name": "Open Rummy",
   "short_name": "Open Rummy",
+  "description": "A companion website for playing the Open Rummy card game",
   "icons": [
     {
-      "src": "./images/icon/logo_144x144.png",
+      "src": "./images/icon/logo_128x128.png",
       "type": "image/png",
-      "sizes": "144x144"
+      "sizes": "128x128",
+      "purpose": "any"
     },
     {
       "src": "./images/icon/logo_192x192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
       "src": "./images/icon/logo_512x512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/icon/logo_maskable_128x128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./images/icon/logo_maskable_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./images/icon/logo_maskable_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
   "screenshots" : [
@@ -53,8 +75,15 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "rotation": "portrait",
   "categories": ["entertainment", "games", "utilities"],
   "background_color": "#06090f",
-  "theme_color": "#06090f"
+  "theme_color": "#06090f",
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.open_rummy.twa",
+      "id": "com.open_rummy.twa"
+    }
+  ],
+  "iarc_rating_id": "cb2ba07a-6ac7-4c7f-b34c-e915a921b12b"
 }
