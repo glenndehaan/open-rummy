@@ -21,7 +21,7 @@ const createStore = () => {
             finished: false, // Defines if a game is finished
             points: {}, // Defines the player points
             wins: [], // Defines the player indexes that have won a round
-            win: -1, // Defines the player index that has won the game
+            win: [], // Defines the players indexes that have won the game
             rotation: -1, // Defines the player index that needs to start in the next round
             turn: -1 // Defines the player index that is active
         },
@@ -71,7 +71,7 @@ const actions = () => {
                 finished: false,
                 points,
                 wins: [],
-                win: -1,
+                win: [],
                 rotation: 1,
                 turn: 0
             });
@@ -87,7 +87,7 @@ const actions = () => {
                     finished: false,
                     points,
                     wins: [],
-                    win: -1,
+                    win: [],
                     rotation: 1,
                     turn: 0
                 }
@@ -154,6 +154,7 @@ const actions = () => {
         gameOver(state) {
             const keys = Object.keys(state.game.points);
             const sort = keys.sort((a, b) => { return state.game.points[b] - state.game.points[a] });
+            const same = sort.filter((e) => { return state.game.points[sort[0]] === state.game.points[e] });
 
             storage.set('game', {
                 ...state.game,
@@ -163,7 +164,9 @@ const actions = () => {
                 },
                 started: false,
                 finished: true,
-                win: state.players.indexOf(sort[0])
+                win: same.map((e) => {
+                    return state.players.indexOf(e);
+                })
             });
 
             const archive = storage.get('archive');
@@ -177,7 +180,9 @@ const actions = () => {
                     },
                     started: false,
                     finished: true,
-                    win: state.players.indexOf(sort[0])
+                    win: same.map((e) => {
+                        return state.players.indexOf(e);
+                    })
                 }
             });
 
@@ -192,7 +197,9 @@ const actions = () => {
                     },
                     started: false,
                     finished: true,
-                    win: state.players.indexOf(sort[0])
+                    win: same.map((e) => {
+                        return state.players.indexOf(e);
+                    })
                 }
             };
         },

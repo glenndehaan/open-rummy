@@ -42,23 +42,53 @@ export default {
      */
     calculateWin(players, game) {
         const payout = {};
-        const winner = players[game.win];
-        const losers = players.filter((player, index) => {
-            return index !== game.win;
-        });
 
         for(let item = 0; item < players.length; item++) {
             const player = players[item];
             payout[player] = 0.00;
         }
 
-        for(let item = 0; item < losers.length; item++) {
-            const loser = losers[item];
-            const points = game.points[loser];
+        const split = game.win.length > 1;
 
-            if(points < 300) {
-                payout[winner] += (300 - points) / 100;
-                payout[loser] -= (300 - points) / 100;
+        if(!split) {
+            const winner = players[game.win[0]];
+            const losers = players.filter((player, index) => {
+                return index !== game.win[0];
+            });
+
+            for (let item = 0; item < losers.length; item++) {
+                const loser = losers[item];
+                const points = game.points[loser];
+
+                if (points < 300) {
+                    payout[winner] += (300 - points) / 100;
+                    payout[loser] -= (300 - points) / 100;
+                }
+            }
+        } else {
+            let winnersPayout = 0;
+            const winners = game.win.map((e) => {
+                return players[e];
+            });
+            const losers = players.filter((player) => {
+                return !winners.includes(player);
+            });
+
+            for (let item = 0; item < losers.length; item++) {
+                const loser = losers[item];
+                const points = game.points[loser];
+
+                if (points < 300) {
+                    winnersPayout += (300 - points) / 100;
+                    payout[loser] -= (300 - points) / 100;
+                }
+            }
+
+            const payoutPerWinner = winnersPayout / winners.length;
+
+            for (let item = 0; item < winners.length; item++) {
+                const winner = winners[item];
+                payout[winner] += payoutPerWinner;
             }
         }
 

@@ -71,10 +71,10 @@ class GameOver extends Component {
      * @return {string}
      */
     csvRanking(players, game) {
-        let csv = "#;Player;Points;Wins\n";
+        let csv = "Player;Points;Wins\n";
 
-        const ranking = players.map((player, key) => {
-            return `${key + 1};${player};${game.points[player]};${game.wins.filter((e) => {return e === players.indexOf(player)}).length}`;
+        const ranking = players.map((player) => {
+            return `${player};${game.points[player]};${game.wins.filter((e) => {return e === players.indexOf(player)}).length}`;
         });
 
         csv += ranking.join('\n');
@@ -136,7 +136,7 @@ class GameOver extends Component {
                 }
                 <section className={style.container}>
                     <h1 className={style.header}>Game Over</h1>
-                    <h2>{players[game.win]} has won the game!!</h2>
+                    <h2>{game.win.map((e) => {return players[e];}).join(', ')} {game.win.length > 1 ? 'have' : 'has'} won the game!!</h2>
                     <br/>
                     <span>The game started at: {new Date(game.time.start).toLocaleTimeString('en-US', dateOptions)}</span><br/>
                     <span>The game ended at: {new Date(game.time.end).toLocaleTimeString('en-US', dateOptions)}</span>
@@ -144,7 +144,6 @@ class GameOver extends Component {
                     <table className={style.results}>
                         <thead>
                             <tr>
-                                <th align="left">#</th>
                                 <th align="left">Player</th>
                                 <th align="left">Points</th>
                                 <th align="left">Wins</th>
@@ -153,7 +152,6 @@ class GameOver extends Component {
                         <tbody>
                             {sort.map((player, key) => (
                                 <tr key={key}>
-                                    <td align="left">{key + 1}</td>
                                     <td align="left">{player}</td>
                                     <td align="right">{game.points[player]}</td>
                                     <td align="right">{game.wins.filter((e) => {return e === players.indexOf(player)}).length}</td>
