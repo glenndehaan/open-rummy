@@ -10,6 +10,10 @@ export default {
     0: (storage) => {
         const archive = storage.get('archive');
 
+        if(archive === null) {
+            return;
+        }
+
         for(let item = 0; item < archive.length; item++) {
             const archiveItem = archive[item];
 
