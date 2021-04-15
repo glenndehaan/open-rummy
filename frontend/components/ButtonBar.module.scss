@@ -17,6 +17,10 @@
   grid-template-columns: calc(100% - 100px) 100px;
 }
 
+.stickyContainer {
+  position: sticky;
+}
+
 .small {
   width: 100px;
 }

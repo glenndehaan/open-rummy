@@ -43,7 +43,6 @@ Then open up your favorite browser and go to http://localhost:3467/
 ## Improvements
 - *Undo button in button bar*
 - Share game via qr code
-- Import/Export games
 
 ## License
 

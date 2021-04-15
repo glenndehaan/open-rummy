@@ -5,6 +5,7 @@ import {actions} from '../modules/store';
 import ButtonBar from '../components/ButtonBar';
 import Points from '../components/Points';
 import Dialog from '../components/Dialog';
+import Help from '../components/Help';
 
 import style from './PlayerTurn.module.scss';
 
@@ -89,7 +90,9 @@ class PlayerTurn extends Component {
                 }
                 <section>
                     <h1>{players[game.turn]}&apos;s Turn <span className={style.smaller}>(Round {game.wins.length + 1})</span></h1>
-                    <span>Enter the total amount of points made this turn</span>
+                    <Help>
+                        <span>Enter the total amount of points made this turn</span>
+                    </Help>
                     <Points turn={game.turn} ref={this.points}/>
                 </section>
                 <ButtonBar buttons={[{text: "Next player", color: "success", click: () => this.nextPlayer()}, {text: "End round", color: "error", click: () => this.openEndRoundDialog()}]}/>

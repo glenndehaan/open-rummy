@@ -4,6 +4,7 @@ import {actions} from '../modules/store';
 
 import ButtonBar from '../components/ButtonBar';
 import Points from '../components/Points';
+import Help from '../components/Help';
 
 import style from './PlayerLoss.module.scss';
 
@@ -76,7 +77,9 @@ class PlayerLoss extends Component {
                         <div className={style.error}>Please enter an amount below!!</div>
                     }
                     <h1>{players[loss[0]]}&apos;s Loss</h1>
-                    <span>Enter the total amount of points the player still has in his/her hand</span>
+                    <Help>
+                        <span>Enter the total amount of points the player still has in his/her hand</span>
+                    </Help>
                     <Points negative={true} turn={loss[0]} ref={this.points}/>
                 </section>
                 <ButtonBar buttons={[{text: "Next player", color: "success", click: () => this.nextPlayer()}]}/>
