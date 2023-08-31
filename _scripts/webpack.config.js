@@ -81,6 +81,7 @@ const config = {
                 {from: 'public/sitemap.xml'},
                 {from: 'public/robots.txt'},
                 {from: 'public/.well-known', to: '.well-known/[name][ext]'},
+                {from: 'public/privacy', to: 'privacy/[name][ext]'},
                 {from: 'public/images/*.*', to: 'images/[name][ext]'},
                 {from: 'public/screenshots/*.*', to: 'screenshots/[name][ext]'},
                 {from: 'public/images/icon/*.*', to: 'images/icon/[name][ext]'}
